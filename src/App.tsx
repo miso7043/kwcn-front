@@ -1,41 +1,41 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import './i18n'; // i18n 초기화
+
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Events from './pages/Events';
-import Media from './pages/Media';
-import MemberLogin from './pages/MemberLogin';
-import DonateNow from './pages/DonateNow';
-import History from './pages/AboutUs/History';
-import FuturePlans from './pages/AboutUs/FuturePlans';
-import Finance from './pages/AboutUs/Finance';
-import Organization from './pages/AboutUs/Organization';
-import Tax from './pages/Information/Tax';
-import Lecture1 from './pages/Information/JobAcademy/Lecture1';
-import TaxSuggestion from './pages/Information/Suggestions/Tax';
-import Volunteer from './pages/GetInvolved/Volunteer';
+import AppRoutes from './routes/AppRoutes';
+
+
+const theme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: { main: '#1976d2' },
+    secondary: { main: '#f50057' },
+  },
+});
 
 const App = () => (
-  <Router>
-    <Navbar />
-    <div style={{ padding: '2rem' }}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about/history" element={<History />} />
-        <Route path="/about/future" element={<FuturePlans />} />
-        <Route path="/about/finance" element={<Finance />} />
-        <Route path="/about/organization" element={<Organization />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/media" element={<Media />} />
-        <Route path="/info/tax" element={<Tax />} />
-  <Route path="/info/jobacademy/lecture1" element={<Lecture1 />} />
-  <Route path="/info/suggestions/tax" element={<TaxSuggestion />} />
-        <Route path="/getinvolved/volunteer" element={<Volunteer />} />
-        <Route path="/login" element={<MemberLogin />} />
-        <Route path="/donate" element={<DonateNow />} />
-      </Routes>
-    </div>
-  </Router>
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <BrowserRouter>
+      <Navbar />
+      <Box
+        component="main"
+        sx={{
+          minHeight: '100vh',
+          width: '100vw',
+          bgcolor: 'background.default',
+          px: 0,
+        }}
+      >
+        <Container maxWidth={false} disableGutters sx={{ px: 0 }}>
+          <AppRoutes />
+        </Container>
+      </Box>
+    </BrowserRouter>
+  </ThemeProvider>
 );
 
 export default App;

@@ -1,0 +1,8 @@
+.homeBg {
+    min-height: 100vh;
+    background: url('/imgs/bgs/514343-PI8QLX-189_w3000-1.webp') center center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

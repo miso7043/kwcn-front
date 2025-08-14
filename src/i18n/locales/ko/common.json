@@ -1,0 +1,45 @@
+{
+  "navigation": {
+    "home": "홈",
+    "aboutUs": "소개",
+    "events": "이벤트",
+    "media": "미디어",
+    "information": "정보",
+    "getInvolved": "참여하기",
+    "memberLogin": "회원 로그인",
+    "donateNow": "기부하기"
+  },
+  "buttons": {
+    "learnMore": "자세히 보기",
+    "register": "등록하기",
+    "donate": "기부하기",
+    "login": "로그인",
+    "readMore": "더 읽기"
+  },
+  "messages": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "성공!",
+    "noData": "데이터가 없습니다"
+  },
+  "home": {
+    "title": "환영합니다!",
+    "welcome": "KWCN 공식 홈페이지에 오신 것을 환영합니다."
+  },
+  "getInvolved": {
+    "volunteer": "자원봉사"
+  },
+  "about": {
+    "history": "연혁",
+    "futurePlans": "미래 계획",
+    "finance": "재정 기록",
+    "organization": "조직 시스템"
+  },
+  "information": {
+    "tax": "세금",
+    "jobAcademy": "잡 아카데미",
+    "lecture1": "강의 1",
+    "suggestion": "추가 제안",
+    "suggestionTax": "세무 상담 내용 정리"
+  }
+}

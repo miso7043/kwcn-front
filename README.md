@@ -7,7 +7,7 @@ kcwn-frontend/
 ├── public/
 │   ├── index.html
 │   ├── favicon.ico
-│   ├── images/
+│   ├── imgs/
 │   │   ├── logos/
 │   │   │   ├── kcwn-logo.png
 │   │   │   ├── canada-flag.png
@@ -15,11 +15,6 @@ kcwn-frontend/
 │   │   ├── events/
 │   │   ├── media/
 │   │   └── backgrounds/
-│   └── locales/
-│       ├── en/
-│       │   └── common.json
-│       └── ko/
-│           └── common.json
 ├── src/
 │   ├── components/
 │   │   ├── common/
@@ -126,7 +121,7 @@ kcwn-frontend/
 │   │   ├── variables.scss
 │   │   ├── mixins.scss
 │   │   └── reset.scss
-│   ├── i18n/
+│   ├── i18n/       다국어 설정 담당
 │   │   ├── index.ts
 │   │   └── resources.ts
 │   ├── App.tsx
