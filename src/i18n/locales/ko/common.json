@@ -16,6 +16,20 @@
     "login": "로그인",
     "readMore": "더 읽기"
   },
+  "footer": {
+    "copyright": "© 2024 Korean Community Workers Network. 모든 권리 보유.",
+    "vision":"한국계 커뮤니티 워커 네트워크는 한국인 커뮤니티를 지원하고 캐나다 사회 발전에 기여하는 가교 역할을 합니다.",
+    "contact": "연락처",
+    "developer": "개발자",
+    "email": "이메일",
+    "aboutUs": "소개",
+    "quickLinks": "빠른 링크",
+    "getInvolved": "참여하기",
+    "volunteer": "자원봉사",
+    "donation": "기부",
+    "eTransfer": "이메일 송금",
+    "creditCard": "신용카드"
+  },
   "messages": {
     "loading": "로딩 중...",
     "error": "오류가 발생했습니다",

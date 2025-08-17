@@ -17,7 +17,17 @@
   },
   "footer": {
     "copyright": "© 2024 Korean Community Workers Network. All rights reserved.",
-    "contact": "Contact Us"
+    "vision": "Korean Community Worker Network serves as a bridge, supporting the Korean community while contributing to the development of Canadian society.",
+    "contact": "Contact Us",
+    "developer": "Developer",
+    "email": "Email",
+    "aboutUs": "About Us",
+    "quickLinks": "Quick Links",
+    "getInvolved": "Get Involved",
+    "volunteer": "Volunteer",
+    "donation": "Donation",
+    "eTransfer": "E-Transfer",
+    "creditCard": "Credit Card"
   },
   "home": {
     "title": "Welcome!",

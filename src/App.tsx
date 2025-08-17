@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import './i18n'; // i18n 초기화
 
 import Navbar from './components/Navbar';
+import Footer from './components/common/Footer/Footer';
 import AppRoutes from './routes/AppRoutes';
 
 
@@ -34,6 +35,7 @@ const App = () => (
           <AppRoutes />
         </Container>
       </Box>
+      <Footer />
     </BrowserRouter>
   </ThemeProvider>
 );

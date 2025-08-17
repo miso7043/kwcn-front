@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import LanguageSwitch from './common/Header/LanguageSwitch';
 import './Navbar.css';
 
 interface MenuItem {
@@ -155,9 +156,12 @@ const Navbar: React.FC = () => {
         </Link>
         
         {/* 데스크톱 메뉴 - CSS로 제어 */}
-        <ul className="navbar-list">
-          {menuData.map(item => renderMenuItem(item))}
-        </ul>
+        <div className="navbar-right">
+          <ul className="navbar-list">
+            {menuData.map(item => renderMenuItem(item))}
+          </ul>
+          <LanguageSwitch />
+        </div>
         
         {/* 모바일 햄버거 버튼 - CSS로 제어 */}
         <button 
@@ -178,6 +182,9 @@ const Navbar: React.FC = () => {
         <ul className="mobile-menu-list">
           {menuData.map(item => renderMenuItem(item, 0, true))}
         </ul>
+        <div className="mobile-language-switch">
+          <LanguageSwitch />
+        </div>
       </div>
     </nav>
   );

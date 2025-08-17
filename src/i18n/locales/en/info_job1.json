@@ -1,5 +1,7 @@
 {
   "title": "JOB ACADEMY",
+  "imgLikeGood": "/imgs/jobacademy/LikeGood_en.webp",
+  "imgLec2Diagram": "/imgs/jobacademy/Lec2_diagram_en.webp",
   "lecture1Plan": "Lecture 1 Plan",
   "lectureSubtitle": "Self and\nCareer Exploration",
   "planItem1": "Learn and use various online tools that help identify your aptitude.",
@@ -139,15 +141,5 @@
       "title": "WorkSafeBC",
       "description": "Workplace safety information"
     }
-  ],
-  "contactSection": {
-    "title": "CONTACT US",
-    "email": "Email:",
-    "web": "Web:",
-    "volunteer": "APPLY VOLUNTEER:",
-    "donation": "DONATION INFO:",
-    "transfer": "e-transfer:",
-    "creditCard": "Pay by Credit Card",
-    "clickHere": "CLICK HERE"
-  }
+  ]
 }

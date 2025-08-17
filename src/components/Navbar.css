@@ -28,11 +28,15 @@
   margin-right: 3rem;
   display: flex;
   align-items: center;
+  height: 50px;
+  min-width: 120px;
 }
 
 .logo img {
   height: 40px;
   width: auto;
+  max-width: 200px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -50,6 +54,13 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  flex: 1;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   flex: 1;
 }
 
@@ -326,6 +337,13 @@
   font-size: 0.85rem;
 }
 
+.mobile-language-switch {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
+
 /* 모바일 반응형 */
 @media (max-width: 768px) {
   .navbar-container {
@@ -336,6 +354,8 @@
   
   .logo {
     margin-right: 0;
+    height: 40px;
+    min-width: 100px;
   }
   
   .logo-desktop {
@@ -347,7 +367,7 @@
   }
   
   /* 데스크톱 메뉴 숨기기 */
-  .navbar-list {
+  .navbar-right {
     display: none !important;
   }
   
@@ -370,6 +390,9 @@
   
   .logo img {
     height: 32px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
   }
   
   .mobile-menu {

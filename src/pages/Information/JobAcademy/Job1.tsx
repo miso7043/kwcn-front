@@ -143,7 +143,7 @@ const Job1: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-500">
+    <div className="min-h-screen bg-gray-900">
       {/* 헤더 섹션 */}
       <div className="relative overflow-hidden">
         <div
@@ -231,7 +231,7 @@ const Job1: React.FC = () => {
             </p>
           </div>
           <img
-            src="/imgs/jobacademy/LikeGood_kr.webp"
+            src={t('info_job1:imgLikeGood')}
             alt="Like Good"
             className="p-[10%] h-auto object-contain"
           />
@@ -294,9 +294,9 @@ const Job1: React.FC = () => {
           </div>
 
           <img
-            src="/imgs/jobacademy/Lec2_diagram_kr.webp"
+            src={t('info_job1:imgLec2Diagram')}
             alt="Lecture 2 Diagram"
-            className="mx-auto h-auto object-contain "
+            className="my-[4rem] mx-auto h-auto object-contain "
           />
 
           <div className="mt-8">
@@ -413,33 +413,7 @@ const Job1: React.FC = () => {
           </div>
         </section>
 
-        {/* 연락처 정보 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-            {t('info_job1:contactSection.title')}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
-          </h2>
-          <div className="bg-gray-800 text-white p-8 rounded-xl leading-relaxed space-y-4">
-            <p className="text-lg">
-              <strong className="text-blue-400">{t('info_job1:contactSection.email')}</strong> <a href="mailto:info@kcwn.ca" className="text-blue-300 hover:underline">info@kcwn.ca</a>
-            </p>
-            <p className="text-lg">
-              <strong className="text-blue-400">{t('info_job1:contactSection.web')}</strong> <a href="https://kcwn.ca" className="text-blue-300 hover:underline">https://kcwn.ca</a>
-            </p>
-            <p className="text-lg">
-              <strong className="text-blue-400">{t('info_job1:contactSection.volunteer')}</strong> <a href="https://kcwn.ca/volunteer/" className="text-blue-300 hover:underline">{t('info_job1:contactSection.clickHere')}</a>
-            </p>
-            <p className="text-lg">
-              <strong className="text-blue-400">{t('info_job1:contactSection.donation')}</strong> <a href="https://kcwn.ca/donation-form/" className="text-blue-300 hover:underline">{t('info_job1:contactSection.clickHere')}</a>
-            </p>
-            <p className="text-lg">
-              <strong className="text-blue-400">{t('info_job1:contactSection.transfer')}</strong> info@kcwn.ca to KCWN
-            </p>
-            <p className="text-lg">
-              <a href="https://kcwn.ca/?asp_action=show_pp&product_id=1627" className="text-blue-300 hover:underline">{t('info_job1:contactSection.creditCard')}</a>
-            </p>
-          </div>
-        </section>
+        
       </div>
     </div>
   );
