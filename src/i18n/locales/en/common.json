@@ -34,9 +34,22 @@
   },
   "information": {
     "tax": "Tax",
+    "tax1": "Tax 1",
+
     "jobAcademy": "Job Academy",
-    "lecture1": "Lecture 1",
-    "suggestion": "Suggestion",
-    "suggestionTax": "Tax Counseling Summary Post"
+    "job1": "Self and Career Exploration",
+    "job2": "Job 2",
+    "job3": "Job 3",
+    "job4": "Job 4",
+    "job5": "Job 5",
+    "job6": "Job 6",
+    "job7": "Job 7",
+    "job8": "Job 8",
+    "job9": "Job 9",
+    "job10": "Job 10",
+    "job11": "Job 11",
+    "job12": "Job 12",
+    "job13": "Job 13",
+    "job14": "Job 14"
   }
 }

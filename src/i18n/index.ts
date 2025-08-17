@@ -27,7 +27,7 @@ i18n
         },
 
         // 네임스페이스 설정
-        ns: ['common', 'events', 'about', 'history'],
+        ns: ['common', 'events', 'about', 'history', 'info_job1'],
         defaultNS: 'common',
 
         // 보간(interpolation) 설정

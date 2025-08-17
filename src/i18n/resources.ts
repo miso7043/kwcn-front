@@ -13,20 +13,29 @@ export interface Resources {
 import enCommon from './locales/en/common.json';
 import enEvents from './locales/en/events.json';
 import enAbout from './locales/en/about.json';
+import enHistory from './locales/en/history.json';
+import enInfoJob1 from './locales/en/info_job1.json';
+
 import koCommon from './locales/ko/common.json';
 import koEvents from './locales/ko/events.json';
 import koAbout from './locales/ko/about.json';
+import koHistory from './locales/ko/history.json';
+import koInfoJob1 from './locales/ko/info_job1.json';
 
 export const resources: Resources = {
   en: {
     common: enCommon,
     events: enEvents,
     about: enAbout,
+    history: enHistory,
+    info_job1: enInfoJob1,
   },
   ko: {
     common: koCommon,
     events: koEvents,
     about: koAbout,
+    history: koHistory,
+    info_job1: koInfoJob1,
   },
 };
 
@@ -43,7 +52,7 @@ export const loadResources = async (language: string, namespace: string) => {
 };
 
 // 네임스페이스 목록
-export const namespaces = ['common', 'events', 'about', 'forms'] as const;
+export const namespaces = ['common', 'events', 'about', 'history', 'forms', 'info_job1'] as const;
 
 // 지원 언어 목록
 export const supportedLanguages = ['en', 'ko'] as const;

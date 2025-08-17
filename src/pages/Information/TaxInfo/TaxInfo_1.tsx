@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TaxSuggestion = () => (
+const TaxInfo_1 = () => (
   <div style={{ 
     backgroundColor: '#000000', 
     color: 'white', 
@@ -12,4 +12,4 @@ const TaxSuggestion = () => (
   </div>
 );
 
-export default TaxSuggestion;
+export default TaxInfo_1;

@@ -7,9 +7,24 @@ import Finance from '../pages/AboutUs/Finance';
 import Organization from '../pages/AboutUs/Organization';
 import Events from '../pages/Events';
 import Media from '../pages/Media';
-import Tax from '../pages/Information/Tax';
-import Lecture1 from '../pages/Information/JobAcademy/Lecture1';
-import TaxSuggestion from '../pages/Information/Suggestions/Tax';
+
+import Lecture1 from '../pages/Information/JobAcademy/Job1';
+import Job1 from '../pages/Information/JobAcademy/Job1';
+import Job2 from '../pages/Information/JobAcademy/Job2';
+import Job3 from '../pages/Information/JobAcademy/Job3';
+import Job4 from '../pages/Information/JobAcademy/Job4';
+import Job5 from '../pages/Information/JobAcademy/Job5';
+import Job6 from '../pages/Information/JobAcademy/Job6';
+import Job7 from '../pages/Information/JobAcademy/Job7';
+import Job8 from '../pages/Information/JobAcademy/Job8';
+import Job9 from '../pages/Information/JobAcademy/Job9';
+import Job10 from '../pages/Information/JobAcademy/Job10';
+import Job11 from '../pages/Information/JobAcademy/Job11';
+import Job12 from '../pages/Information/JobAcademy/Job12';
+import Job13 from '../pages/Information/JobAcademy/Job13';
+import Job14 from '../pages/Information/JobAcademy/Job14';
+
+import TaxInfo_1 from '../pages/Information/TaxInfo/TaxInfo_1';
 import MemberLogin from '../pages/MemberLogin';
 import DonateNow from '../pages/DonateNow';
 import Volunteer from '../pages/GetInvolved/Volunteer';
@@ -23,9 +38,24 @@ const AppRoutes = () => (
     <Route path="/about/organization" element={<Organization />} />
     <Route path="/events" element={<Events />} />
     <Route path="/media" element={<Media />} />
-    <Route path="/info/tax" element={<Tax />} />
-    <Route path="/info/jobacademy/lecture1" element={<Lecture1 />} />
-    <Route path="/info/suggestions/tax" element={<TaxSuggestion />} />
+    {/* <Route path="/info/tax" element={<Tax />} /> */}
+    <Route path="/info/jobacademy/job1" element={<Job1 />} />
+    <Route path="/info/jobacademy/job2" element={<Job2 />} />
+    <Route path="/info/jobacademy/job3" element={<Job3 />} />
+    <Route path="/info/jobacademy/job4" element={<Job4 />} />
+    <Route path="/info/jobacademy/job5" element={<Job5 />} />
+    <Route path="/info/jobacademy/job6" element={<Job6 />} />
+    <Route path="/info/jobacademy/job7" element={<Job7 />} />
+    <Route path="/info/jobacademy/job8" element={<Job8 />} />
+    <Route path="/info/jobacademy/job9" element={<Job9 />} />
+    <Route path="/info/jobacademy/job10" element={<Job10 />} />
+    <Route path="/info/jobacademy/job11" element={<Job11 />} />
+    <Route path="/info/jobacademy/job12" element={<Job12 />} />
+    <Route path="/info/jobacademy/job13" element={<Job13 />} />
+    <Route path="/info/jobacademy/job14" element={<Job14 />} />
+
+    <Route path="/info/tax/tax1" element={<TaxInfo_1 />} />
+
     <Route path="/getinvolved/volunteer" element={<Volunteer />} />
     <Route path="/login" element={<MemberLogin />} />
     <Route path="/donate" element={<DonateNow />} />

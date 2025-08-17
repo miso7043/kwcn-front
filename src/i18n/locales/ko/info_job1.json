@@ -1,0 +1,153 @@
+{
+  "title": "JOB ACADEMY",
+  "lecture1Plan": "Lecture 1 Plan",
+  "lectureSubtitle": "Self and\nCareer Exploration",
+  "planItem1": "본인의 적성을 파악하기위해 도움이 되는 다양한 온라인툴을 배우고 사용해본다.",
+  "planItem2": "본인의 적성과 캐나다 구직활동이라는 특수성과의 연관성을 이해한다.",
+  "tedQuote": "\"Why you will fail to have a great career\"",
+  "introduction": {
+    "paragraph1": "사람들에게는 모두 제 각각 다른 관심사, 가치관, 능력과 특징이 있습니다. 내가 잘 하는게 무엇인지, 내가 무엇을 좋아하는지, 내가 중요하게 생각하는 가치관이 무엇인지 알고 계시나요?",
+    "paragraph2": "직업선택에 있어 고려해야할 많은 부분이 있지만, 본인의 적성에 대한 이해와 연관성이 제일 중요한 요건 중 하나라 볼 수 있습니다."
+  },
+  "workBcSection": {
+    "title": "나 자신을 알기 – Work BC 웹사이트",
+    "description1": "비씨주정부에서 운영하는 Work BC 사이트는 캐나다, 비씨주의 취업관련하여 다양한 최신정보를 찾아볼 수 있는 훌륭한 자료입니다. 본인의 적성과 능력을 파악하기위한 셀프퀴즈 툴도 마련되어 있습니다.",
+    "description2": "웹사이트를 방문하여 직접 퀴즈를 풀어보세요.",
+    "quizzesTitle": "Quizzes"
+  },
+  "galleryTitle": "강의 이미지 갤러리",
+  "quizzes": [
+    {
+      "title": "Abilities Quiz",
+      "description": "본인의 능력을 파악하는 퀴즈"
+    },
+    {
+      "title": "Work Preference Quiz",
+      "description": "업무 선호도를 파악하는 퀴즈"
+    },
+    {
+      "title": "Interests Quiz",
+      "description": "관심 분야를 파악하는 퀴즈"
+    }
+  ],
+  "careerSection": {
+    "title": "나의 적성과 특기, 그리고 캐나다에서의 구직활동",
+    "paragraph1": "본인의 적성과 특기가 어느 정도 파악이 되었다면, 이제 이것이 캐나다사회에서 구직과 어떻게 연관이 되는지 생각해보아야합니다.",
+    "paragraph2": "본인의 영어에 대한 숙련정도, 자신감, 캐나다에서 내가 가지고 있는 각종 서포트네트워크, 캐나다사회에 대한 이해/낯설음 정도, 캐나다 노동시장환경 등, 이 모든 것이 내가 캐나다에서 어떤 직업을 목표로 하고, 어떤 방법으로 구직활동을 해야할지에 큰 영향을 미치기 때문입니다.",
+    "improvementTitle": "개선 영역별 방법:",
+    "languageSkills": {
+      "title": "언어능력향상:",
+      "items": [
+        "온라인 툴 활용 (TED, YouTube, Apps for English learners, etc)",
+        "LinkedIn - 온라인상의 네트워킹 툴 및 정보"
+      ]
+    },
+    "offlineActivities": {
+      "title": "오프라인 활동:",
+      "toastmasters": "Toastmasters - presentation skills와 Impromptu speech를 연습할 수 있는 지역별 소모임. 정해진 순서에 따라 본인이 준비해온 프레젠테이션 발표 후 그룹 멤버들에게 피드백을 받을 수 있습니다.",
+      "meetup": "Meet Up - 공통관심사를 가진 사람들과 오프라인 모임"
+    },
+    "volunteering": {
+      "title": "Volunteering:",
+      "item1": "캐나다 직장경력을 얻을 수 있는 방법으로 본인의 관심사에 따라 다양한 기관에서 다양한 포지션을 지원할 수 있습니다.",
+      "item2": "취업을 목표로하는 회사, 혹은 동종업계의 회사의 웹페이지를 방문하여 자원봉사신청이 가능한지 확인해보세요."
+    },
+    "supportNetwork": {
+      "title": "서포트네트워크/전반적 사회 이해도:",
+      "item": "Volunteering, social groups participation, workshops, non-profit organization etc."
+    },
+    "keyPoints": {
+      "title": "핵심 포인트:",
+      "point1": "언어, 서포트 네트워크, 전반적 사회이해 중 본인에게 취약한 부분이 있다면, 그 부분을 어떻게 보완/향상시킬 수 있을지 생각해봐야합니다.",
+      "point2": "자신의 강점을 최대한 어필할수있는 방법을 찾아 자신감을 가지는것이 중요합니다."
+    }
+  },
+  "certificatesSection": {
+    "title": "자격증",
+    "description1": "직업군에 따라 미리 준비해두면 좋을 자격증",
+    "description2": "1일에서 길게는 일주일이 넘지않는 short-term 과정으로 약 $100 – $300 정도의 시간과 비용의 투자로 목표하는 직업군에 대한 전문지식과 자격을 갖출수있습니다.",
+    "description3": "경력이 부족하더라도 이러한 자격증을 취득함으로써 원하는 직종에대한 열정과 준비성을 보일수있습니다.",
+    "viewDetails": "자세히 보기"
+  },
+  "certificates": [
+    {
+      "title": "Food Safe Level 1",
+      "description": "요리사, 서빙, 주방, 제빵 등에 필요한 자격 (8시간 수업)"
+    },
+    {
+      "title": "WHMIS",
+      "description": "공장, 자동차, 청소, 식품 가공업, 건강 관련, 랩 등의 작업환경에서 필요한 안전 자격증"
+    },
+    {
+      "title": "First Aid / CPR",
+      "description": "응급처치와 심폐소생술"
+    },
+    {
+      "title": "Forklift",
+      "description": "지게차 운전"
+    },
+    {
+      "title": "Traffic Control",
+      "description": "공사 중 차량통제"
+    },
+    {
+      "title": "Serving it Right",
+      "description": "알콜 주류 판매, 서빙"
+    },
+    {
+      "title": "Microsoft Essential",
+      "description": "Basic computer skills - 사무직 관련업무 희망자"
+    },
+    {
+      "title": "ECE Workshops",
+      "description": "데이케어 관련업무 희망자"
+    },
+    {
+      "title": "Customer Service and Cashier Training, POS",
+      "description": "서비스업 관련 기본 기술"
+    }
+  ],
+  "resourcesSection": {
+    "title": "그 외 도움기관 및 정보 찾기"
+  },
+  "resources": [
+    {
+      "title": "Work BC",
+      "description": "비씨주 취업 정보"
+    },
+    {
+      "title": "Job Bank",
+      "description": "캐나다 정부 취업 정보"
+    },
+    {
+      "title": "BC 211",
+      "description": "비씨주 지역 서비스 정보"
+    },
+    {
+      "title": "New to BC",
+      "description": "비씨주 신규 이민자 정보"
+    },
+    {
+      "title": "이민자 지원기관 찾기",
+      "description": "이민자를 위한 지원 서비스"
+    },
+    {
+      "title": "봉사활동 포지션",
+      "description": "자원봉사 기회"
+    },
+    {
+      "title": "WorkSafeBC",
+      "description": "직장 안전 정보"
+    }
+  ],
+  "contactSection": {
+    "title": "CONTACT US",
+    "email": "Email:",
+    "web": "Web:",
+    "volunteer": "APPLY VOLUNTEER:",
+    "donation": "DONATION INFO:",
+    "transfer": "e-transfer:",
+    "creditCard": "Pay by Credit Card",
+    "clickHere": "CLICK HERE"
+  }
+}

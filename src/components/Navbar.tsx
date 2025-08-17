@@ -26,19 +26,31 @@ const menuData: MenuItem[] = [
     nameKey: "common:navigation.information",
     link: null,
     children: [
-      { nameKey: "common:information.tax", link: "/info/tax" },
       {
         nameKey: "common:information.jobAcademy",
         link: null,
-        children: [
-          { nameKey: "common:information.lecture1", link: "/info/jobacademy/lecture1" }
-        ]
+          children: [
+            { nameKey: "common:information.job1", link: "/info/jobacademy/job1" },
+            { nameKey: "common:information.job2", link: "/info/jobacademy/job2" },
+            { nameKey: "common:information.job3", link: "/info/jobacademy/job3" },
+            { nameKey: "common:information.job4", link: "/info/jobacademy/job4" },
+            { nameKey: "common:information.job5", link: "/info/jobacademy/job5" },
+            { nameKey: "common:information.job6", link: "/info/jobacademy/job6" },
+            { nameKey: "common:information.job7", link: "/info/jobacademy/job7" },
+            { nameKey: "common:information.job8", link: "/info/jobacademy/job8" },
+            { nameKey: "common:information.job9", link: "/info/jobacademy/job9" },
+            { nameKey: "common:information.job10", link: "/info/jobacademy/job10" },
+            { nameKey: "common:information.job11", link: "/info/jobacademy/job11" },
+            { nameKey: "common:information.job12", link: "/info/jobacademy/job12" },
+            { nameKey: "common:information.job13", link: "/info/jobacademy/job13" },
+            { nameKey: "common:information.job14", link: "/info/jobacademy/job14" }
+          ]
       },
       {
-        nameKey: "common:information.suggestion",
+        nameKey: "common:information.tax",
         link: null,
         children: [
-          { nameKey: "common:information.suggestionTax", link: "/info/suggestions/tax" }
+          { nameKey: "common:information.tax1", link: "/info/suggestions/tax" }
         ]
       }
     ]
