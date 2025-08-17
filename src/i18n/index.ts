@@ -73,7 +73,7 @@ i18n
         load: 'languageOnly', // 'en-US' -> 'en'으로 변환
 
         // 네임스페이스 설정
-        ns: ['common', 'events', 'about', 'history', 'info_job1'],
+        ns: ['common', 'events', 'about', 'history', 'info_job1', 'info_job2'],
         defaultNS: 'common',
 
         // 보간(interpolation) 설정

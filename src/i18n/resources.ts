@@ -15,12 +15,14 @@ import enEvents from './locales/en/events.json';
 import enAbout from './locales/en/about.json';
 import enHistory from './locales/en/history.json';
 import enInfoJob1 from './locales/en/info_job1.json';
+import enInfoJob2 from './locales/en/info_job2.json';
 
 import koCommon from './locales/ko/common.json';
 import koEvents from './locales/ko/events.json';
 import koAbout from './locales/ko/about.json';
 import koHistory from './locales/ko/history.json';
 import koInfoJob1 from './locales/ko/info_job1.json';
+import koInfoJob2 from './locales/ko/info_job2.json';
 
 export const resources: Resources = {
   en: {
@@ -29,6 +31,7 @@ export const resources: Resources = {
     about: enAbout,
     history: enHistory,
     info_job1: enInfoJob1,
+    info_job2: enInfoJob2,
   },
   ko: {
     common: koCommon,
@@ -36,6 +39,7 @@ export const resources: Resources = {
     about: koAbout,
     history: koHistory,
     info_job1: koInfoJob1,
+    info_job2: koInfoJob2,
   },
 };
 
@@ -52,7 +56,7 @@ export const loadResources = async (language: string, namespace: string) => {
 };
 
 // 네임스페이스 목록
-export const namespaces = ['common', 'events', 'about', 'history', 'forms', 'info_job1'] as const;
+export const namespaces = ['common', 'events', 'about', 'history', 'forms', 'info_job1', 'info_job2'] as const;
 
 // 지원 언어 목록
 export const supportedLanguages = ['en', 'ko'] as const;

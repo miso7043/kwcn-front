@@ -91,14 +91,14 @@
 }
 
 .menu-item:hover {
-  background: rgba(255, 248, 220, 0.2);
+  background: rgba(255, 248, 220, 0.6);
   transform: translateY(-1px);
   color: inherit; /* 기본 색상 유지 */
 }
 
 .menu-item.active,
 .menu-item.clicked {
-  background: rgba(255, 248, 220, 0.4);
+  background: rgba(255, 248, 220, 0.8);
 }
 
 /* 서브메뉴가 있는 메인 메뉴의 기본 상태 */
@@ -108,14 +108,14 @@
 
 /* 서브메뉴가 있는 메인 메뉴의 호버 상태 */
 .dropdown > .menu-item:hover {
-  background: rgba(255, 248, 220, 0.2);
+  background: rgba(255, 248, 220, 0.6);
   transform: translateY(-1px);
   color: inherit; /* 기본 색상 유지 */
 }
 
 /* 서브메뉴 중 하나가 활성화되었을 때만 배경 적용 */
 .dropdown > .menu-item.active {
-  background: rgba(255, 248, 220, 0.4);
+  background: rgba(255, 248, 220, 0.8);
 }
 
 .dropdown {
@@ -127,13 +127,13 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.9);
   min-width: 220px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   padding: 0.5rem 0;
   z-index: 1001;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   list-style: none; /* 리스트 스타일 제거 */
   margin: 0;
@@ -159,7 +159,7 @@
 }
 
 .dropdown-content .menu-item:hover {
-  background: rgba(255, 248, 220, 0.3);
+  background: rgba(255, 248, 220, 0.7);
   transform: none;
 }
 
@@ -172,13 +172,13 @@
   position: absolute;
   top: 0;
   left: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
   min-width: 200px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   padding: 0.5rem 0;
   z-index: 1002;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   list-style: none; /* 리스트 스타일 제거 */
   margin: 0;
@@ -202,7 +202,7 @@
 }
 
 .dropdown-content-sub .menu-item:hover {
-  background: rgba(255, 248, 220, 0.3);
+  background: rgba(255, 248, 220, 0.7);
 }
 
 /* 애니메이션 */
@@ -310,7 +310,7 @@
 }
 
 .mobile-menu-list .menu-item:hover {
-  background: rgba(255, 248, 220, 0.3);
+  background: rgba(255, 248, 220, 0.7);
   transform: none;
 }
 
