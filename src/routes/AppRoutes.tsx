@@ -8,7 +8,7 @@ import Organization from '../pages/AboutUs/Organization';
 import Events from '../pages/Events';
 import Media from '../pages/Media';
 
-import Lecture1 from '../pages/Information/JobAcademy/Job1';
+// import Lecture1 from '../pages/Information/JobAcademy/Job1';
 import Job1 from '../pages/Information/JobAcademy/Job1';
 import Job2 from '../pages/Information/JobAcademy/Job2';
 import Job3 from '../pages/Information/JobAcademy/Job3';
@@ -24,7 +24,7 @@ import Job12 from '../pages/Information/JobAcademy/Job12';
 import Job13 from '../pages/Information/JobAcademy/Job13';
 import Job14 from '../pages/Information/JobAcademy/Job14';
 
-import TaxInfo_1 from '../pages/Information/TaxInfo/TaxInfo_1';
+import TaxGuide from '../pages/Information/TaxInfo/BC_taxGuide';
 import MemberLogin from '../pages/MemberLogin';
 import DonateNow from '../pages/DonateNow';
 import Volunteer from '../pages/GetInvolved/Volunteer';
@@ -54,7 +54,7 @@ const AppRoutes = () => (
     <Route path="/info/jobacademy/job13" element={<Job13 />} />
     <Route path="/info/jobacademy/job14" element={<Job14 />} />
 
-    <Route path="/info/tax/tax1" element={<TaxInfo_1 />} />
+    <Route path="/info/taxGuide" element={<TaxGuide />} />
 
     <Route path="/getinvolved/volunteer" element={<Volunteer />} />
     <Route path="/login" element={<MemberLogin />} />

@@ -43,23 +43,23 @@
     "organization": "Organization System"
   },
   "information": {
-    "tax": "Tax",
-    "tax1": "Tax 1",
+    "tax": "BC Tax Guide",
 
     "jobAcademy": "Job Academy",
-    "job1": "Self and Career Exploration",
-    "job2": "Labor Market Info",
-    "job3": "Resume Writing",
-    "job4": "Interview Prep",
-    "job5": "Workplace Culture",
-    "job6": "BC Employment Standards Act Guide",
-    "job7": "Wages and Termination",
-    "job8": "Healthcare Careers 1",
-    "job9": "Healthcare Careers 2",
-    "job10": "Early Childhood Education",
-    "job11": "Skilled Trades",
-    "job12": "Education Assistant",
-    "job13": "Community Worker",
-    "job14": "Web Design/Development"
+    "job1": "1 Self and Career Exploration",
+    "job2": "2 Labor Market Info",
+    "job3": "3 Resume Writing",
+    "job4": "4 Interview Prep",
+    "job5": "5 Workplace Culture",
+    "job6": "6 BC Employment Standards Act Guide",
+    "job7": "7 Wages and Termination",
+    "job8": "8 Healthcare Careers 1",
+    "job9": "9 Healthcare Careers 2",
+    "job10": "10 Early Childhood Education",
+    "job11": "11 Skilled Trades",
+    "job12": "12 Education Assistant",
+    "job13": "13 Community Worker",
+    "job14": "14 Web Design/Development",
+    "navigationDescription": "Click the buttons below to navigate to other lectures"
   }
 }

@@ -49,10 +49,7 @@ const menuData: MenuItem[] = [
       },
       {
         nameKey: "common:information.tax",
-        link: null,
-        children: [
-          { nameKey: "common:information.tax1", link: "/info/suggestions/tax" }
-        ]
+        link: "/info/taxGuide"
       }
     ]
   },

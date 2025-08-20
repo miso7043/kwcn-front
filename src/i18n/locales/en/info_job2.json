@@ -88,19 +88,28 @@
     "sections": [
       {
         "title": "Labour Market & Industry",
-        "content": "Provides information about BC's labour market and industry overview. You can check current employment trends, wage information, and regional labour market conditions."
+        "content": "Provides information about BC's labour market and industry overview. You can check current employment trends, wage information, and regional labour market conditions.",
+        "link": "https://www.workbc.ca/Labour-Market-Industry.aspx"
       },
       {
         "title": "B.C.'s Economy",
-        "content": "Provides BC's economic outlook and key economic indicators. You can check economic growth rates, unemployment rates, and industry growth forecasts."
+        "content": "Provides BC's economic outlook and key economic indicators. You can check economic growth rates, unemployment rates, and industry growth forecasts.",
+        "link": "https://www.workbc.ca/Labour-Market-Industry/Labour-Market-Outlook.aspx"
       },
       {
-        "title": "High Demand Occupations",
-        "content": "Provides information about high-demand occupational groups. You can check promising occupations and required qualifications."
+        "title": "Top Demand Trades",
+        "content": "B.C.’s Labour Market Outlook (2024) forecasts over 105,300 skilled trades job openings in the next decade. These careers require on-the-job and classroom training while offering strong earning potential. \nThe report highlights the 15 trades with the most openings, including details on training, earnings, and growth.",
+        "link": "https://www.workbc.ca/research-labour-market/top-demand-trades"
+      },
+      {
+        "title": "High Opportunity Occupations in B.C.",
+        "content": "The 2024 B.C. Labour Market Outlook identifies high opportunity occupations by considering job openings and growth, future labour market tightness, current unemployment rates, and employment income.",
+        "link": "https://www.workbc.ca/research-labour-market/high-opportunity-occupations"
       },
       {
         "title": "Industry and Sector Information",
-        "content": "Provides detailed information by industry and sector. You can understand the characteristics, employment opportunities, and development potential of each industry."
+        "content": "Provides detailed information by industry and sector. You can understand the characteristics, employment opportunities, and development potential of each industry.",
+        "link": "https://www.workbc.ca/Labour-Market-Industry/Industry-and-Sector-Information.aspx"
       }
     ]
   },
@@ -123,14 +132,6 @@
       {
         "title": "Career Trek BC",
         "content": "A video series introducing 113 occupational groups. You can learn about the reality of various careers through interviews with actual professionals."
-      },
-      {
-        "title": "Importance of Career Exploration",
-        "content": "To find a career that suits you, you need to understand various occupations. Learn about job content, required qualifications, and work environment in advance."
-      },
-      {
-        "title": "What You Like vs What You're Good At",
-        "content": "When choosing a career, it's important to find a balance between what you like to do and what you can do well. You can discover the optimal career in the overlapping areas."
       }
     ]
   }

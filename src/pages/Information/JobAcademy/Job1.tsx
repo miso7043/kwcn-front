@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ImageGallery from '../../../components/ui/ImageGallery/ImageGallery';
+import JobAcademyNavigation from '../../../components/ui/JobAcademyNavigation/JobAcademyNavigation';
 
 interface ResourceLink {
   title: string;
@@ -343,14 +344,14 @@ const Job1: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-yellow-900 p-6 rounded-lg border-l-4 border-yellow-400 mt-6">
-            <h4 className="text-yellow-300 text-lg font-semibold mb-4">{t('info_job1:careerSection.keyPoints.title')}</h4>
+          <div className="bg-yellow-900/10 p-6 rounded-lg border-l-4 border-yellow-400 mt-6">
+            <h4 className="text-white text-lg font-semibold mb-4">{t('info_job1:careerSection.keyPoints.title')}</h4>
             <ul className="space-y-3">
-              <li className="relative pl-6 text-yellow-100 leading-relaxed">
+              <li className="relative pl-6 text-white leading-relaxed">
                 <span className="absolute left-0">💡</span>
                 {t('info_job1:careerSection.keyPoints.point1')}
               </li>
-              <li className="relative pl-6 text-yellow-100 leading-relaxed">
+              <li className="relative pl-6 text-white leading-relaxed">
                 <span className="absolute left-0">💡</span>
                 {t('info_job1:careerSection.keyPoints.point2')}
               </li>
@@ -376,12 +377,12 @@ const Job1: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mt-8">
             {certificates.map((cert, index) => (
-              <div key={index} className="bg-gradient-to-r from-indigo-800 to-indigo-700 text-white p-6 rounded-xl hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+              <div key={index} className="bg-gray-800 text-white p-6 rounded-xl hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <h4 className="text-xl font-bold mb-4">{cert.title}</h4>
                 <p className="leading-relaxed opacity-95 mb-4">{cert.description}</p>
                 {cert.url !== '#' && (
                   <div className="text-center">
-                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors">
+                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-indigo-800 to-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors">
                       {t('info_job1:certificatesSection.viewDetails')}
                     </a>
                   </div>
@@ -413,7 +414,8 @@ const Job1: React.FC = () => {
           </div>
         </section>
 
-        
+        {/* Job Academy 네비게이션 */}
+        <JobAcademyNavigation currentJobId={1} />
       </div>
     </div>
   );
