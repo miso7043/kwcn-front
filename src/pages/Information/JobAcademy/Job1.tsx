@@ -10,7 +10,8 @@ interface ResourceLink {
 }
 
 const Job1: React.FC = () => {
-  const { t } = useTranslation(['common', 'information', 'info_job1']);
+  const { t, i18n } = useTranslation(['common', 'information', 'info_job1']);
+  const currentLanguage = i18n.language;
 
   // 갤러리 이미지 데이터
   const galleryImages = [
@@ -161,15 +162,15 @@ const Job1: React.FC = () => {
       <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
         <img
           src="/imgs/jobacademy/lectureBack.webp"
-          alt="Lecture 1 Background"
+          alt="Lecture Background"
           className="w-full h-auto object-contain"
         />
 
-        <div className="absolute left-[39%] top-[38%]">
-          <h2 className="text-4xl sm:text-5xl font-bold text-black drop-shadow-lg">Lecture 1</h2>
+        <div className="absolute left-[39%] top-[39%]">
+          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 1</h2>
         </div>
-        <div className="absolute left-[66%] top-[26%]">
-          <h2 className="text-[2.5rem] font-bold text-white drop-shadow-lg">
+        <div className={`absolute left-[66%] ${currentLanguage === 'ko' ? 'top-[38%]' : 'top-[26%]'}`}>
+          <h2 className="font-bold text-white drop-shadow-lg text-[clamp(0.8rem,2.5vw,3rem)]">
             {t('info_job1:lectureSubtitle').split('\n').map((line: string, index: number) => (
               <React.Fragment key={index}>
                 {line}
@@ -184,7 +185,7 @@ const Job1: React.FC = () => {
         {/* Lecture 1 계획 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-            {t('info_job1:lecture1Plan')}
+            {t('info_job1:lecturePlan')}
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
 

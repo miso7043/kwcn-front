@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import JobAcademyNavigation from '../../../components/ui/JobAcademyNavigation/JobAcademyNavigation';
 import type {
   SubSection,
@@ -16,6 +17,8 @@ import {
 } from './InfoSubComponent';
 
 const Job3: React.FC = () => {
+    const { t } = useTranslation(['info_job3']);
+
   // h3 + ul 패턴 데이터들
   const coverLetterDefinition: SubSection = {
     title: "정의",
@@ -205,28 +208,51 @@ const Job3: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* 헤더 이미지 */}
+      {/* 헤더 섹션 */}
       <div className="relative overflow-hidden">
         <div
           className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
-          <h1 className="relative z-10 text-white text-5xl font-black text-center drop-shadow-lg pt-10">
-            잡 아카데미 강의 3: Cover Letter와 Resume 작성법
+          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+            {t('info_job3:title')}
           </h1>
         </div>
       </div>
 
+      {/* Lecture 1 섹션 */}
+      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+        <img
+          src="/imgs/jobacademy/lectureBack.webp"
+          alt="Lecture Background"
+          className="w-full h-auto object-contain"
+        />
+
+        <div className="absolute left-[39%] top-[39%]">
+          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 3</h2>
+        </div>
+        <div className="absolute left-[66%] top-[38%]">
+          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+            {t('info_job3:lectureSubtitle').split('\n').map((line: string, index: number) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < t('info_job3:lectureSubtitle').split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </h2>
+        </div>
+      </div>
+
+
       <div className="max-w-6xl mx-auto p-8">
-        
+
         {/* 강의 3 목표 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
             Lecture 3 Goal
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <div className="bg-gray-800 p-6 rounded-lg mt-6">
             <p className="text-gray-200 text-lg">
               • Cover Letter(Cover Letter)와 Resume(Resume) 작성법에 대해 배운다.
@@ -240,7 +266,7 @@ const Job3: React.FC = () => {
             Cover Letter 작성법 배우기
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <SubSectionWithList {...coverLetterThinking} />
         </section>
 
@@ -250,10 +276,10 @@ const Job3: React.FC = () => {
             Cover Letter란
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <div className="grid gap-6 mb-6">
             <SubSectionWithList {...coverLetterDefinition} />
-            
+
             <div className="bg-gray-800 p-6 rounded-lg border-l-4 border-yellow-500">
               <h3 className="text-yellow-300 text-xl font-semibold mb-4">자주 묻는 질문</h3>
               <div className="text-gray-200 space-y-2">
@@ -270,7 +296,7 @@ const Job3: React.FC = () => {
             Cover Letter 쓸 때 고려할 것들
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <IconListComponent {...coverLetterConsiderations} />
         </section>
 
@@ -280,7 +306,7 @@ const Job3: React.FC = () => {
             Cover Letter의 구성
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <NumberedListComponent {...coverLetterStructure} />
         </section>
 
@@ -290,7 +316,7 @@ const Job3: React.FC = () => {
             Cover Letter에 있어야 하는 것들
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <div className="space-y-4">
             <IconListComponent {...coverLetterRequirements} />
           </div>
@@ -302,7 +328,7 @@ const Job3: React.FC = () => {
             Cover Letter를 쓸 때 해야 하는 것들
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <IconListComponent {...coverLetterDos} />
         </section>
 
@@ -312,7 +338,7 @@ const Job3: React.FC = () => {
             Cover Letter를 쓸 때 하지 말아야 하는 것들
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <IconListComponent {...coverLetterDonts} />
         </section>
 
@@ -322,7 +348,7 @@ const Job3: React.FC = () => {
             Resume 작성법 배우기
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <SubSectionWithList {...resumeThinking} />
         </section>
 
@@ -332,13 +358,13 @@ const Job3: React.FC = () => {
             Resume란
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <div className="bg-gray-800 p-6 rounded-lg mb-6 border-l-4 border-blue-500">
             <p className="text-gray-200 text-lg leading-relaxed">
               고용주가 한눈에 당신이 가지고 있는 관련성 있는 기술, 교육, 일 경험들을 알아 볼 수 있게 전달하는 마케팅 툴이에요.
             </p>
           </div>
-          
+
           <QuestionListComponent {...resumeQuestions} />
         </section>
 
@@ -348,7 +374,7 @@ const Job3: React.FC = () => {
             Resume를 쓸 때 고려할 것들
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <SubSectionWithList {...brandingGuidelines} />
         </section>
 
@@ -358,7 +384,7 @@ const Job3: React.FC = () => {
             Resume를 쓸 때 하지 말아야 하는 것들
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <IconListComponent {...resumeDonts} />
         </section>
 
@@ -370,22 +396,22 @@ const Job3: React.FC = () => {
             Cover Letter와 Resume 작성시 꼭 해야 하는 것
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <NumberedListComponent {...essentialTasks} />
-          
+
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-500">
               <h3 className="text-white text-lg font-bold mb-4">Sample Resume 1</h3>
-              <img 
-                src="/imgs/jobacademy/lecture3-01.png" 
+              <img
+                src="/imgs/jobacademy/lecture3-01.png"
                 alt="Sample Resume 1"
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
             <div className="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-500">
               <h3 className="text-white text-lg font-bold mb-4">Sample Resume 2</h3>
-              <img 
-                src="/imgs/jobacademy/lecture3-02.png" 
+              <img
+                src="/imgs/jobacademy/lecture3-02.png"
                 alt="Sample Resume 2"
                 className="w-full rounded-lg shadow-lg"
               />

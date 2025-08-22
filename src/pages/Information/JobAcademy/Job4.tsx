@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import JobAcademyNavigation from '../../../components/ui/JobAcademyNavigation/JobAcademyNavigation';
 import { StarMethodComponent, TasksListComponent, SectionWithSubSectionsComponent, ThinkingBoxComponent } from './InfoSubComponent';
 
 const Job4: React.FC = () => {
+  const { t } = useTranslation(['info_job4']);
+
   // STAR 기법 데이터
   const starMethodData = [
     {
@@ -54,7 +57,7 @@ const Job4: React.FC = () => {
   const interviewPrepSteps = [
     {
       title: "1단계: 회사 연구하기",
-      description:"",
+      description: "",
       tips: [
         "회사 웹사이트 방문",
         "회사 미션, 비전, 가치관 파악",
@@ -64,7 +67,7 @@ const Job4: React.FC = () => {
     },
     {
       title: "2단계: 직무 분석하기",
-      description:"",
+      description: "",
       tips: [
         "잡 포스팅 다시 읽기",
         "필요한 스킬과 자격 요건 확인",
@@ -74,7 +77,7 @@ const Job4: React.FC = () => {
     },
     {
       title: "3단계: 예상 질문 준비하기",
-      description:"",
+      description: "",
       tips: [
         "일반적인 질문 리스트 작성",
         "행동 기반 질문(Behavioral) 준비",
@@ -84,7 +87,7 @@ const Job4: React.FC = () => {
     },
     {
       title: "4단계: 질문할 내용 준비하기",
-      description:"",
+      description: "",
       tips: [
         "회사 문화에 대한 질문",
         "직무 관련 구체적 질문",
@@ -287,28 +290,50 @@ const Job4: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* 헤더 이미지 */}
+      {/* 헤더 섹션 */}
       <div className="relative overflow-hidden">
         <div
           className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
-          <h1 className="relative z-10 text-white text-5xl font-black text-center drop-shadow-lg pt-10">
-            잡 아카데미 강의 4: 인터뷰 (Interview) 준비하기
+          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+            {t('info_job4:title')}
           </h1>
         </div>
       </div>
 
+      {/* Lecture 1 섹션 */}
+      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+        <img
+          src="/imgs/jobacademy/lectureBack.webp"
+          alt="Lecture Background"
+          className="w-full h-auto object-contain"
+        />
+
+        <div className="absolute left-[39%] top-[39%]">
+          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 1</h2>
+        </div>
+        <div className="absolute left-[66%] top-[38%]">
+          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+            {t('info_job4:lectureSubtitle').split('\n').map((line: string, index: number) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < t('info_job4:lectureSubtitle').split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </h2>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto p-8">
-        
+
         {/* 강의 4 목표 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
             Lecture 4 Goal
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <div className="bg-gray-800 p-6 rounded-lg mt-6">
             <p className="text-gray-200 text-lg">
               • 인터뷰(Interview) 준비에 대해 배운다.
@@ -322,7 +347,7 @@ const Job4: React.FC = () => {
             인터뷰 준비하기
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <ThinkingBoxComponent
             title={thinkingQuestions.title}
             questions={thinkingQuestions.questions}
@@ -330,9 +355,9 @@ const Job4: React.FC = () => {
         </section>
 
         {/* 면접의 종류 */}
-        <SectionWithSubSectionsComponent 
-          title={interviewTypes.title} 
-          subSections={interviewTypes.subSections} 
+        <SectionWithSubSectionsComponent
+          title={interviewTypes.title}
+          subSections={interviewTypes.subSections}
         />
 
         {/* 인터뷰 준비 단계 */}
@@ -346,15 +371,15 @@ const Job4: React.FC = () => {
         </section>
 
         {/* 인터뷰에서 중요한 요소들 */}
-        <SectionWithSubSectionsComponent 
-          title={importantInterviewElements.title} 
-          subSections={importantInterviewElements.subSections} 
+        <SectionWithSubSectionsComponent
+          title={importantInterviewElements.title}
+          subSections={importantInterviewElements.subSections}
         />
 
         {/* 자주 나오는 인터뷰 질문들 */}
-        <SectionWithSubSectionsComponent 
-          title={commonInterviewQuestions.title} 
-          subSections={commonInterviewQuestions.subSections} 
+        <SectionWithSubSectionsComponent
+          title={commonInterviewQuestions.title}
+          subSections={commonInterviewQuestions.subSections}
         />
 
         {/* STAR 기법 */}
@@ -363,13 +388,13 @@ const Job4: React.FC = () => {
             STAR 기법 활용하기
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <div className="mb-6">
             <p className="text-gray-200 mb-4 leading-relaxed">
               행동 기반 질문에 체계적으로 답변하는 방법:
             </p>
           </div>
-          
+
           <StarMethodComponent items={starMethodData} />
         </section>
 
@@ -379,14 +404,14 @@ const Job4: React.FC = () => {
             면접 후 할 일
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <TasksListComponent tasks={postInterviewTasks} />
         </section>
 
         {/* 자신감 키우기 */}
-        <SectionWithSubSectionsComponent 
-          title={interviewConfidenceBuilding.title} 
-          subSections={interviewConfidenceBuilding.subSections} 
+        <SectionWithSubSectionsComponent
+          title={interviewConfidenceBuilding.title}
+          subSections={interviewConfidenceBuilding.subSections}
         />
 
         {/* Job Academy 네비게이션 */}

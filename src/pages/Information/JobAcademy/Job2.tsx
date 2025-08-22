@@ -9,16 +9,38 @@ const Job2: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* 헤더 이미지 */}
+      {/* 헤더 섹션 */}
       <div className="relative overflow-hidden">
         <div
           className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
-          <h1 className="relative z-10 text-white text-5xl font-black text-center drop-shadow-lg pt-10">
-            {t('info_job2:headerTitle')}
+          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+            {t('info_job2:title')}
           </h1>
+        </div>
+      </div>
+
+      {/* Lecture 1 섹션 */}
+      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+        <img
+          src="/imgs/jobacademy/lectureBack.webp"
+          alt="Lecture Background"
+          className="w-full h-auto object-contain"
+        />
+
+        <div className="absolute left-[39%] top-[39%]">
+          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 2</h2>
+        </div>
+        <div className="absolute left-[66%] top-[38%]">
+          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+            {t('info_job2:lectureSubtitle').split('\n').map((line: string, index: number) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < t('info_job2:lectureSubtitle').split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </h2>
         </div>
       </div>
 

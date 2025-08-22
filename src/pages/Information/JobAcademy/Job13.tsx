@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import JobAcademyNavigation from '../../../components/ui/JobAcademyNavigation/JobAcademyNavigation';
 import { SubSectionWithList, BoxListComponent, TitledTwoColumnListComponent, MultiColumnListComponent, SimpleReferenceListComponent } from './InfoSubComponent';
 
 const Job13: React.FC = () => {
+  const { t } = useTranslation(['info_job13']);
+
   // Community Worker 관련 데이터
   const communityWorkerMainTasks = {
     title: "주요 업무",
@@ -34,15 +37,43 @@ const Job13: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-8">
-        {/* 헤더 */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-white">Lecture 13</h1>
-          <p className="text-xl text-gray-300 mb-8">Community Worker - 지역사회복지사</p>
-          <div className="w-32 h-1 bg-emerald-500 mx-auto"></div>
+    <div className="min-h-screen bg-gray-900">
+      {/* 헤더 섹션 */}
+      <div className="relative overflow-hidden">
+        <div
+          className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
+          style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
+        >
+          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+            {t('info_job13:title')}
+          </h1>
         </div>
+      </div>
 
+      {/* Lecture 1 섹션 */}
+      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+        <img
+          src="/imgs/jobacademy/lectureBack.webp"
+          alt="Lecture Background"
+          className="w-full h-auto object-contain"
+        />
+
+        <div className="absolute left-[39%] top-[39%]">
+          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 13</h2>
+        </div>
+        <div className="absolute left-[66%] top-[38%]">
+          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+            {t('info_job13:lectureSubtitle').split('\n').map((line: string, index: number) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < t('info_job13:lectureSubtitle').split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </h2>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto p-8">
           {/* Community Worker 소개 */}
           <section className="mb-12">

@@ -1,8 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import JobAcademyNavigation from '../../../components/ui/JobAcademyNavigation/JobAcademyNavigation';
 import { SubSectionWithList, ReferenceListComponent } from './InfoSubComponent';
 
 const Job6: React.FC = () => {
+  const { t, i18n } = useTranslation(['info_job6']);
+  const currentLanguage = i18n.language; // 언어 변경시 자동으로 리렌더링됨
+
   // 고용기준법 적용 제외 사례 데이터
   const exclusionCases = {
     title: "포함되지 않는 경우",
@@ -163,15 +167,44 @@ const Job6: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-8">
-        {/* 헤더 */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-white">Lecture 6</h1>
-          <p className="text-xl text-gray-300 mb-8">BC 고용기준법 (Employment Standards)</p>
-          <div className="w-32 h-1 bg-blue-500 mx-auto"></div>
+    <div className="min-h-screen bg-gray-900">
+      {/* 헤더 섹션 */}
+      <div className="relative overflow-hidden">
+        <div
+          className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
+          style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
+        >
+          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+            {t('info_job6:title')}
+          </h1>
         </div>
+      </div>
 
+      {/* Lecture 1 섹션 */}
+      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+        <img
+          src="/imgs/jobacademy/lectureBack.webp"
+          alt="Lecture Background"
+          className="w-full h-auto object-contain"
+        />
+
+        <div className="absolute left-[39%] top-[39%]">
+          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 6</h2>
+        </div>
+        <div className={`absolute left-[66%] ${currentLanguage === 'ko' ? 'top-[38%]' : 'top-[26%]'}`}>
+          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+            {t('info_job6:lectureSubtitle').split('\n').map((line: string, index: number) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < t('info_job6:lectureSubtitle').split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </h2>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-8">
+        
         <div className="max-w-6xl mx-auto p-8">
           {/* 고용기준법 적용 여부 */}
           <section className="mb-12">

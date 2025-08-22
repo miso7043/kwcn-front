@@ -1,8 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import JobAcademyNavigation from '../../../components/ui/JobAcademyNavigation/JobAcademyNavigation';
 import { SectionWithSubSectionsComponent, ThinkingBoxComponent, TasksListComponent, TableComponent, CultureComparisonListComponent } from './InfoSubComponent';
 
 const Job5: React.FC = () => {
+  const { t } = useTranslation(['info_job5']);
+
   // 생각해보기 데이터
   const thinkingQuestions = {
     title: "생각해 보기",
@@ -304,28 +307,50 @@ const Job5: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* 헤더 이미지 */}
+      {/* 헤더 섹션 */}
       <div className="relative overflow-hidden">
         <div
           className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
-          <h1 className="relative z-10 text-white text-5xl font-black text-center drop-shadow-lg pt-10">
-            잡 아카데미 강의 5: 캐나다 직장 문화 이해하기
+          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+            {t('info_job5:title')}
           </h1>
         </div>
       </div>
 
+      {/* Lecture 1 섹션 */}
+      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+        <img
+          src="/imgs/jobacademy/lectureBack.webp"
+          alt="Lecture Background"
+          className="w-full h-auto object-contain"
+        />
+
+        <div className="absolute left-[39%] top-[39%]">
+          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 5</h2>
+        </div>
+        <div className="absolute left-[66%] top-[38%]">
+          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+            {t('info_job5:lectureSubtitle').split('\n').map((line: string, index: number) => (
+              <React.Fragment key={index}>
+                {line}
+                {index < t('info_job5:lectureSubtitle').split('\n').length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </h2>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto p-8">
-        
+
         {/* 강의 5 목표 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
             Lecture 5 Goal
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <div className="bg-gray-800 p-6 rounded-lg mt-6">
             <p className="text-gray-200 text-lg">
               • 캐나다 직장 문화에 대해 배운다.
@@ -339,7 +364,7 @@ const Job5: React.FC = () => {
             캐나다 직장 문화 배우기
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <ThinkingBoxComponent
             title={thinkingQuestions.title}
             questions={thinkingQuestions.questions}
@@ -347,34 +372,34 @@ const Job5: React.FC = () => {
         </section>
 
         {/* 캐나다 직장의 기본 특징 */}
-        <SectionWithSubSectionsComponent 
-          title={basicFeatures.title} 
-          subSections={basicFeatures.subSections} 
+        <SectionWithSubSectionsComponent
+          title={basicFeatures.title}
+          subSections={basicFeatures.subSections}
         />
 
         {/* 캐나다와 한국 직장 문화 비교 */}
-        <TableComponent 
+        <TableComponent
           title={cultureComparison.title}
           headers={cultureComparison.headers}
           rows={cultureComparison.rows}
         />
 
         {/* 효과적인 커뮤니케이션 */}
-        <SectionWithSubSectionsComponent 
-          title={effectiveCommunication.title} 
-          subSections={effectiveCommunication.subSections} 
+        <SectionWithSubSectionsComponent
+          title={effectiveCommunication.title}
+          subSections={effectiveCommunication.subSections}
         />
 
         {/* 캐나다 직장에서의 에티켓 */}
-        <SectionWithSubSectionsComponent 
-          title={workplaceEtiquette.title} 
-          subSections={workplaceEtiquette.subSections} 
+        <SectionWithSubSectionsComponent
+          title={workplaceEtiquette.title}
+          subSections={workplaceEtiquette.subSections}
         />
 
         {/* 팀워크와 협업 */}
-        <SectionWithSubSectionsComponent 
-          title={teamworkCollaboration.title} 
-          subSections={teamworkCollaboration.subSections} 
+        <SectionWithSubSectionsComponent
+          title={teamworkCollaboration.title}
+          subSections={teamworkCollaboration.subSections}
         />
 
         {/* 문화적 차이 이해하기 */}
@@ -383,7 +408,7 @@ const Job5: React.FC = () => {
             문화적 차이 이해하기
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <CultureComparisonListComponent items={culturalDifferences} />
         </section>
 
@@ -393,14 +418,14 @@ const Job5: React.FC = () => {
             성공적인 적응을 위한 팁
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
-          
+
           <TasksListComponent tasks={adaptationTips} />
         </section>
 
         {/* 장기적 성공 전략 */}
-        <SectionWithSubSectionsComponent 
-          title={longTermStrategy.title} 
-          subSections={longTermStrategy.subSections} 
+        <SectionWithSubSectionsComponent
+          title={longTermStrategy.title}
+          subSections={longTermStrategy.subSections}
         />
 
         {/* Job Academy 네비게이션 */}
