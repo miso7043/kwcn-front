@@ -1,148 +1,64 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import useLanguage from '../../../hooks/useLanguage';
 import ImageGallery from '../../../components/ui/ImageGallery/ImageGallery';
-import JobAcademyNavigation from '../../../components/ui/JobAcademyNavigation/JobAcademyNavigation';
+import JobAcademyNavigation from '../../../components/features/information/JobAcademyNavigation';
+import * as job1ko from './locales/Job1_ko';
+import * as job1en from './locales/Job1_en';
 
-interface ResourceLink {
+
+type SimpleInfo = {
   title: string;
-  url: string;
-  description?: string;
-}
+  description: string;
+};
 
 const Job1: React.FC = () => {
-  const { t, i18n } = useTranslation(['common', 'information', 'info_job1']);
-  const currentLanguage = i18n.language;
+  const { language } = useLanguage();
+  const job1 = language === 'en' ? job1en : job1ko;
+  const { job1Text } = job1;
 
-  // 갤러리 이미지 데이터
   const galleryImages = [
-    {
-      src: '/imgs/jobacademy/lecture1-WorkBC1.jpg',
-      alt: 'WorkBC 1',
-      title: ''
-    },
-    {
-      src: '/imgs/jobacademy/lecture1-WorkBC2.jpg',
-      alt: 'WorkBC 2',
-      title: ''
-    },
-    {
-      src: '/imgs/jobacademy/lecture1-WorkBC3.jpg',
-      alt: 'WorkBC 3',
-      title: ''
-    },
-    {
-      src: '/imgs/jobacademy/lecture1-WorkBC4.jpg',
-      alt: 'WorkBC 4',
-      title: ''
-    }
+    { src: '/imgs/jobacademy/lecture1-WorkBC1.jpg', alt: 'WorkBC 1', title: '' },
+    { src: '/imgs/jobacademy/lecture1-WorkBC2.jpg', alt: 'WorkBC 2', title: '' },
+    { src: '/imgs/jobacademy/lecture1-WorkBC3.jpg', alt: 'WorkBC 3', title: '' },
+    { src: '/imgs/jobacademy/lecture1-WorkBC4.jpg', alt: 'WorkBC 4', title: '' },
   ];
 
-  // Work BC 퀴즈 링크들
-  const workBcQuizzes: ResourceLink[] = [
-    {
-      title: t('info_job1:quizzes.0.title'),
-      url: 'https://careerdiscoveryquizzes.workbc.ca/form/abilities-quiz',
-      description: t('info_job1:quizzes.0.description')
-    },
-    {
-      title: t('info_job1:quizzes.1.title'),
-      url: 'https://careerdiscoveryquizzes.workbc.ca/form/work-preferences-quiz',
-      description: t('info_job1:quizzes.1.description')
-    },
-    {
-      title: t('info_job1:quizzes.2.title'),
-      url: 'https://careerdiscoveryquizzes.workbc.ca/form/interests-quiz',
-      description: t('info_job1:quizzes.2.description')
-    }
-  ];
+  const workBcQuizzes = job1Text.quizzes.map((quiz: SimpleInfo, idx: number) => ({
+    ...quiz,
+    url: [
+      'https://careerdiscoveryquizzes.workbc.ca/form/abilities-quiz',
+      'https://careerdiscoveryquizzes.workbc.ca/form/work-preferences-quiz',
+      'https://careerdiscoveryquizzes.workbc.ca/form/interests-quiz',
+    ][idx],
+  }));
 
-  // 자격증 정보
-  const certificates = [
-    {
-      title: t('info_job1:certificates.0.title'),
-      description: t('info_job1:certificates.0.description'),
-      url: 'http://www.foodsafe.ca/'
-    },
-    {
-      title: t('info_job1:certificates.1.title'),
-      description: t('info_job1:certificates.1.description'),
-      url: '#'
-    },
-    {
-      title: t('info_job1:certificates.2.title'),
-      description: t('info_job1:certificates.2.description'),
-      url: 'http://www.redcross.ca/training-and-certification'
-    },
-    {
-      title: t('info_job1:certificates.3.title'),
-      description: t('info_job1:certificates.3.description'),
-      url: 'https://www.worksafebc.com/en/health-safety/education-training-certification/forklift-operator'
-    },
-    {
-      title: t('info_job1:certificates.4.title'),
-      description: t('info_job1:certificates.4.description'),
-      url: 'https://www.bccsa.ca/Standardized-Traffic-Control-Training.html'
-    },
-    {
-      title: t('info_job1:certificates.5.title'),
-      description: t('info_job1:certificates.5.description'),
-      url: 'https://www.servingitright.com/'
-    },
-    {
-      title: t('info_job1:certificates.6.title'),
-      description: t('info_job1:certificates.6.description'),
-      url: '#'
-    },
-    {
-      title: t('info_job1:certificates.7.title'),
-      description: t('info_job1:certificates.7.description'),
-      url: 'https://gv.ymca.ca/Blogs/CCRR-Blog/August-2017/Looking-for-ECE-workshops'
-    },
-    {
-      title: t('info_job1:certificates.8.title'),
-      description: t('info_job1:certificates.8.description'),
-      url: '#'
-    }
-  ];
+  const certificates = job1Text.certificates.map((cert: SimpleInfo, idx: number) => ({
+    ...cert,
+    url: [
+      'http://www.foodsafe.ca/',
+      '#',
+      'http://www.redcross.ca/training-and-certification',
+      'https://www.worksafebc.com/en/health-safety/education-training-certification/forklift-operator',
+      'https://www.bccsa.ca/Standardized-Traffic-Control-Training.html',
+      'https://www.servingitright.com/',
+      '#',
+      'https://gv.ymca.ca/Blogs/CCRR-Blog/August-2017/Looking-for-ECE-workshops',
+      '#',
+    ][idx],
+  }));
 
-  // 도움 기관 링크들
-  const helpfulResources: ResourceLink[] = [
-    {
-      title: t('info_job1:resources.0.title'),
-      url: 'https://www.workbc.ca/',
-      description: t('info_job1:resources.0.description')
-    },
-    {
-      title: t('info_job1:resources.1.title'),
-      url: 'https://www.jobbank.gc.ca/explorecareers',
-      description: t('info_job1:resources.1.description')
-    },
-    {
-      title: t('info_job1:resources.2.title'),
-      url: 'http://www.bc211.ca/',
-      description: t('info_job1:resources.2.description')
-    },
-    {
-      title: t('info_job1:resources.3.title'),
-      url: 'http://newtobc.ca/',
-      description: t('info_job1:resources.3.description')
-    },
-    {
-      title: t('info_job1:resources.4.title'),
-      url: 'http://www.cic.gc.ca/english/newcomers/services/index.asp',
-      description: t('info_job1:resources.4.description')
-    },
-    {
-      title: t('info_job1:resources.5.title'),
-      url: 'http://www.govolunteer.ca/',
-      description: t('info_job1:resources.5.description')
-    },
-    {
-      title: t('info_job1:resources.6.title'),
-      url: 'http://www.worksafebc.com/',
-      description: t('info_job1:resources.6.description')
-    }
-  ];
+  const helpfulResources = job1Text.resources.map((res: SimpleInfo, idx: number) => ({
+    ...res,
+    url: [
+      'https://www.workbc.ca/',
+      'https://www.jobbank.gc.ca/explorecareers',
+      'http://www.bc211.ca/',
+      'http://newtobc.ca/',
+      'http://www.cic.gc.ca/english/newcomers/services/index.asp',
+      'http://www.govolunteer.ca/',
+      'http://www.worksafebc.com/',
+    ][idx],
+  }));
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -153,7 +69,7 @@ const Job1: React.FC = () => {
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
           <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
-            {t('info_job1:title')}
+            {job1Text.title}
           </h1>
         </div>
       </div>
@@ -169,12 +85,12 @@ const Job1: React.FC = () => {
         <div className="absolute left-[39%] top-[39%]">
           <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 1</h2>
         </div>
-        <div className={`absolute left-[66%] ${currentLanguage === 'ko' ? 'top-[38%]' : 'top-[26%]'}`}>
+        <div className={`absolute left-[66%] ${language === 'ko' ? 'top-[38%]' : 'top-[26%]'}`}>
           <h2 className="font-bold text-white drop-shadow-lg text-[clamp(0.8rem,2.5vw,3rem)]">
-            {t('info_job1:lectureSubtitle').split('\n').map((line: string, index: number) => (
+            {job1Text.lectureSubtitle.split('\n').map((line: string, index: number) => (
               <React.Fragment key={index}>
                 {line}
-                {index < t('info_job1:lectureSubtitle').split('\n').length - 1 && <br />}
+                {index < job1Text.lectureSubtitle.split('\n').length - 1 && <br />}
               </React.Fragment>
             ))}
           </h2>
@@ -185,7 +101,7 @@ const Job1: React.FC = () => {
         {/* Lecture 1 계획 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-            {t('info_job1:lecturePlan')}
+            {job1Text.lecturePlan}
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
 
@@ -193,17 +109,17 @@ const Job1: React.FC = () => {
             <ul className="space-y-2">
               <li className="relative pl-6 text-gray-200">
                 <span className="absolute left-0 text-green-400 font-bold">✓</span>
-                {t('info_job1:planItem1')}
+                {job1Text.planItem1}
               </li>
               <li className="relative pl-6 text-gray-200">
                 <span className="absolute left-0 text-green-400 font-bold">✓</span>
-                {t('info_job1:planItem2')}
+                {job1Text.planItem2}
               </li>
             </ul>
           </div>
 
           <h3 className="text-2xl italic text-red-400 text-center my-6 p-4 bg-gray-800 border-l-4 border-red-500 rounded">
-            {t('info_job1:tedQuote')}
+            {job1Text.tedQuote}
           </h3>
 
           {/* TED 영상 삽입 */}
@@ -226,14 +142,14 @@ const Job1: React.FC = () => {
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div className="text-gray-200 leading-relaxed text-lg space-y-4">
             <p>
-              {t('info_job1:introduction.paragraph1')}
+              {job1Text.introduction.paragraph1}
             </p>
             <p>
-              {t('info_job1:introduction.paragraph2')}
+              {job1Text.introduction.paragraph2}
             </p>
           </div>
           <img
-            src={t('info_job1:imgLikeGood')}
+            src={job1Text.imgLikeGood}
             alt="Like Good"
             className="p-[10%] h-auto object-contain"
           />
@@ -242,27 +158,27 @@ const Job1: React.FC = () => {
         {/* Work BC 웹사이트 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-            {t('info_job1:workBcSection.title')}
+            {job1Text.workBcSection.title}
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
           <div className="text-gray-200 leading-relaxed text-lg space-y-4">
             <p>
-              {t('info_job1:workBcSection.description1')}
+              {job1Text.workBcSection.description1}
             </p>
-            <p>{t('info_job1:workBcSection.description2')}</p>
+            <p>{job1Text.workBcSection.description2}</p>
           </div>
 
           {/* 이미지 갤러리 */}
           <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-              {t('info_job1:galleryTitle')}
+              {job1Text.galleryTitle}
               <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
             </h2>
             <ImageGallery images={galleryImages} />
           </section>
 
           <div className="mt-8">
-            <h4 className="text-white text-xl font-semibold mb-4">{t('info_job1:workBcSection.quizzesTitle')}</h4>
+            <h4 className="text-white text-xl font-semibold mb-4">{job1Text.workBcSection.quizzesTitle}</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
               {workBcQuizzes.map((quiz, index) => (
                 <a
@@ -283,78 +199,78 @@ const Job1: React.FC = () => {
         {/* 적성과 특기, 캐나다 구직활동 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-            {t('info_job1:careerSection.title')}
+            {job1Text.careerSection.title}
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
           <div className="text-gray-200 leading-relaxed text-lg space-y-4">
             <p>
-              {t('info_job1:careerSection.paragraph1')}
+              {job1Text.careerSection.paragraph1}
             </p>
             <p>
-              {t('info_job1:careerSection.paragraph2')}
+              {job1Text.careerSection.paragraph2}
             </p>
           </div>
 
           <img
-            src={t('info_job1:imgLec2Diagram')}
+            src={job1Text.imgLec2Diagram}
             alt="Lecture 2 Diagram"
             className="my-[4rem] mx-auto h-auto object-contain "
           />
 
           <div className="mt-8">
-            <h4 className="text-white text-xl font-semibold mb-6">{t('info_job1:careerSection.improvementTitle')}</h4>
+            <h4 className="text-white text-xl font-semibold mb-6">{job1Text.careerSection.improvementTitle}</h4>
 
             <div className="bg-gray-800 p-6 rounded-lg mb-4 border-l-4 border-blue-500">
-              <h5 className="text-white text-lg font-bold mb-4">{t('info_job1:careerSection.languageSkills.title')}</h5>
+              <h5 className="text-white text-lg font-bold mb-4">{job1Text.careerSection.languageSkills.title}</h5>
               <ul className="list-disc list-inside space-y-2 text-gray-200">
-                <li>{t('info_job1:careerSection.languageSkills.items.0')}</li>
-                <li>{t('info_job1:careerSection.languageSkills.items.1')} (<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">linkedin.com</a>)</li>
+                <li>{job1Text.careerSection.languageSkills.items[0]}</li>
+                <li>{job1Text.careerSection.languageSkills.items[1]} (<a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">linkedin.com</a>)</li>
               </ul>
             </div>
 
             <div className="bg-gray-800 p-6 rounded-lg mb-4 border-l-4 border-blue-500">
-              <h5 className="text-white text-lg font-bold mb-4">{t('info_job1:careerSection.offlineActivities.title')}</h5>
+              <h5 className="text-white text-lg font-bold mb-4">{job1Text.careerSection.offlineActivities.title}</h5>
               <ul className="list-disc list-inside space-y-3 text-gray-200">
                 <li>
-                  <strong className="text-white">Toastmasters</strong> - {t('info_job1:careerSection.offlineActivities.toastmasters')}
+                  <strong className="text-white">Toastmasters</strong> - {job1Text.careerSection.offlineActivities.toastmasters}
                   (<a href="https://www.toastmasters.org/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">toastmasters.org</a>)
                 </li>
                 <li>
-                  <strong className="text-white">Meet Up</strong> - {t('info_job1:careerSection.offlineActivities.meetup')}
+                  <strong className="text-white">Meet Up</strong> - {job1Text.careerSection.offlineActivities.meetup}
                   (<a href="https://www.meetup.com/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">meetup.com</a>)
                 </li>
               </ul>
             </div>
 
             <div className="bg-gray-800 p-6 rounded-lg mb-4 border-l-4 border-blue-500">
-              <h5 className="text-white text-lg font-bold mb-4">{t('info_job1:careerSection.volunteering.title')}</h5>
+              <h5 className="text-white text-lg font-bold mb-4">{job1Text.careerSection.volunteering.title}</h5>
               <ul className="list-disc list-inside space-y-3 text-gray-200">
                 <li>
-                  {t('info_job1:careerSection.volunteering.item1')}
+                  {job1Text.careerSection.volunteering.item1}
                   (<a href="https://www.govolunteer.ca/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">govolunteer.ca</a>)
                 </li>
-                <li>{t('info_job1:careerSection.volunteering.item2')}</li>
+                <li>{job1Text.careerSection.volunteering.item2}</li>
               </ul>
             </div>
 
             <div className="bg-gray-800 p-6 rounded-lg mb-4 border-l-4 border-blue-500">
-              <h5 className="text-white text-lg font-bold mb-4">{t('info_job1:careerSection.supportNetwork.title')}</h5>
+              <h5 className="text-white text-lg font-bold mb-4">{job1Text.careerSection.supportNetwork.title}</h5>
               <ul className="list-disc list-inside space-y-2 text-gray-200">
-                <li>{t('info_job1:careerSection.supportNetwork.item')}</li>
+                <li>{job1Text.careerSection.supportNetwork.item}</li>
               </ul>
             </div>
           </div>
 
           <div className="bg-yellow-900/10 p-6 rounded-lg border-l-4 border-yellow-400 mt-6">
-            <h4 className="text-white text-lg font-semibold mb-4">{t('info_job1:careerSection.keyPoints.title')}</h4>
+            <h4 className="text-white text-lg font-semibold mb-4">{job1Text.careerSection.keyPoints.title}</h4>
             <ul className="space-y-3">
               <li className="relative pl-6 text-white leading-relaxed">
                 <span className="absolute left-0">💡</span>
-                {t('info_job1:careerSection.keyPoints.point1')}
+                {job1Text.careerSection.keyPoints.point1}
               </li>
               <li className="relative pl-6 text-white leading-relaxed">
                 <span className="absolute left-0">💡</span>
-                {t('info_job1:careerSection.keyPoints.point2')}
+                {job1Text.careerSection.keyPoints.point2}
               </li>
             </ul>
           </div>
@@ -363,16 +279,16 @@ const Job1: React.FC = () => {
         {/* 자격증 섹션 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-            {t('info_job1:certificatesSection.title')}
+            {job1Text.certificatesSection.title}
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
           <div className="text-gray-200 leading-relaxed text-lg space-y-4">
-            <p>{t('info_job1:certificatesSection.description1')}</p>
+            <p>{job1Text.certificatesSection.description1}</p>
             <p>
-              {t('info_job1:certificatesSection.description2')}
+              {job1Text.certificatesSection.description2}
             </p>
             <p>
-              {t('info_job1:certificatesSection.description3')}
+              {job1Text.certificatesSection.description3}
             </p>
           </div>
 
@@ -384,7 +300,7 @@ const Job1: React.FC = () => {
                 {cert.url !== '#' && (
                   <div className="text-center">
                     <a href={cert.url} target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-indigo-800 to-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-white/30 transition-colors">
-                      {t('info_job1:certificatesSection.viewDetails')}
+                      {job1Text.certificatesSection.viewDetails}
                     </a>
                   </div>
                 )}
@@ -396,7 +312,7 @@ const Job1: React.FC = () => {
         {/* 도움 기관 및 정보 */}
         <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
-            {t('info_job1:resourcesSection.title')}
+            {job1Text.resourcesSection.title}
             <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">

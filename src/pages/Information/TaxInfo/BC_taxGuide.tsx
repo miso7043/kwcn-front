@@ -1,5 +1,3 @@
-import React from "react";
-
 // BC Tax Guide - Single-file React component using Tailwind CSS
 // Default export: TaxGuide
 
@@ -18,7 +16,7 @@ export default function TaxGuide() {
         </div>
       </div>
 
-      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+      <div className="max-w-6xl md:max-w-7xl mx-auto rounded-lg p-8 mt-3">
         <div className="bg-black rounded-2xl shadow p-8">
           <h2 className="font-bold text-white drop-shadow-lg text-[clamp(1rem,2.5vw,2.5rem)] mb-4">Practical tax information for residents of British Columbia</h2>
           <p className="text-gray-200 leading-relaxed text-lg">
@@ -77,7 +75,7 @@ export default function TaxGuide() {
               <li>Some items are PST-exempt (basic groceries, certain medical supplies); check official PST guides before purchasing large items.</li>
             </ul>
           </div>
-          
+
           <div className="bg-yellow-900/10 rounded-lg border-l-4 border-yellow-400 text-gray-200 leading-relaxed text-lg space-y-4 p-6 mb-4">
             <h4 className="text-white text-xl font-bold mb-2">Filing Deadlines & Documents</h4>
             <p>Important civic deadlines and documents:</p>

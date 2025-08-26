@@ -60,6 +60,9 @@
     "job12": "12 Education Assistant",
     "job13": "13 Community Worker",
     "job14": "14 Web Design/Development",
-    "navigationDescription": "Click the buttons below to navigate to other lectures"
+    "navigationDescription": "Click the buttons below to navigate to other lectures",
+
+    "note": "Note",
+    "visitSite": "Visit Site"
   }
 }

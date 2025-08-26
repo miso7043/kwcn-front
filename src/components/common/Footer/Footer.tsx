@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { getCurrentLanguage } from '../../../i18n';
 import styles from './Footer.module.scss';
 
 const Footer: React.FC = () => {
     const { t } = useTranslation('common');
-    const currentLang = getCurrentLanguage();
 
     return (
         <footer className={styles.footer}>

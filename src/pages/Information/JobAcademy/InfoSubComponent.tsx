@@ -154,14 +154,20 @@ export interface StepGuideProps {
     textColor?: string;
 }
 
+// **문자열** 패턴을 <strong>문자열</strong>로 변환하는 함수
+function highlightStrong(text: string): string {
+    return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
 // h3 + ul 패턴을 위한 컴포넌트
 export const SubSectionWithList: React.FC<SubSection> = ({ title, items, titleColor = "text-white", borderColor = "border-blue-500" }) => (
     <div className={`bg-gray-900 p-6 rounded-lg border-l-4 ${borderColor}`}>
         {title && <h3 className={`${titleColor} text-xl font-bold mb-4`}>{title}</h3>}
         <ul className="text-gray-200 space-y-2">
-            {items.map((item, index) => (
-                <li key={index}>• {item}</li>
-            ))}
+            {items.map((item, index) => {
+                const html = highlightStrong(item);
+                return <li key={index}>• <span dangerouslySetInnerHTML={{ __html: html }} /></li>;
+            })}
         </ul>
     </div>
 );
@@ -348,7 +354,7 @@ export const TitledTwoColumnListComponent: React.FC<TitledTwoColumnListProps> = 
             {leftColumn.title && <p className="mb-3">{leftColumn.title}</p>}
             <ul className="space-y-1">
                 {leftColumn.items.map((item: string, index: number) => (
-                    <li key={index}>• {item}</li>
+                    <li key={index}>• <span dangerouslySetInnerHTML={{ __html: highlightStrong(item) }} /></li>
                 ))}
             </ul>
         </div>
@@ -356,7 +362,7 @@ export const TitledTwoColumnListComponent: React.FC<TitledTwoColumnListProps> = 
             {rightColumn.title && <p className="mb-3">{rightColumn.title}</p>}
             <ul className="space-y-1">
                 {rightColumn.items.map((item: string, index: number) => (
-                    <li key={index}>• {item}</li>
+                    <li key={index}>• <span dangerouslySetInnerHTML={{ __html: highlightStrong(item) }} /></li>
                 ))}
             </ul>
         </div>
@@ -395,7 +401,7 @@ export const InfoBoxComponent: React.FC<InfoBoxProps> = ({
         {description && <p className={`${textColor} mb-4`}>{description}</p>}
         <ul className={`${textColor} space-y-2`}>
             {items.map((item: string, index: number) => (
-                <li key={index}>• {item}</li>
+                <li key={index}>• <span dangerouslySetInnerHTML={{ __html: highlightStrong(item) }} /></li>
             ))}
         </ul>
     </div>
@@ -434,7 +440,7 @@ export const SmallTitleListComponent: React.FC<SmallTitleListProps> = ({
     textColor = "text-gray-200",
 }) => (
     <div className={textColor}>
-        {title && <p className="mb-2">**{title}:**</p>}
+        {title && <p className="mb-2"><strong>{title}:</strong></p>}
         <ul className={`space-y-1`}>
             {items.map((item: string, index: number) => (
                 <li key={index}>• {item}</li>
@@ -530,7 +536,7 @@ export const SimpleTitleListComponent: React.FC<SimpleTitleListProps> = ({
     title,
     items,
     titleColor = "text-white",
-    textColor = "text-grey-200",
+    textColor = "text-white",
     spacing = "space-y-1"
 }) => (
     items && items.length > 0 ? (
@@ -570,10 +576,12 @@ export const BoxListComponent: React.FC<BoxListProps> = ({
 }) => (
     items && items.length > 0 ? (
         <div className={`${bgColor} ${padding} rounded-lg ${marginBottom}`}>
-            <h3 className={`${titleColor} font-bold mb-3`}>{title}</h3>
+            <h3 className={`${titleColor} font-bold mb-3`}>
+                <span dangerouslySetInnerHTML={{ __html: highlightStrong(title) }} />
+            </h3>
             <ul className={`${textColor} ${spacing} `}>
                 {items.map((item: string, index: number) => (
-                    <li key={index}>• {item}</li>
+                    <li key={index}>• <span dangerouslySetInnerHTML={{ __html: highlightStrong(item) }} /></li>
                 ))}
             </ul>
         </div>
@@ -666,7 +674,7 @@ export const TitleDescriptionGridComponent: React.FC<TitleDescriptionGridCompone
         <div className={`grid ${gridCols} gap-4`}>
             {items.map((item, index) => (
                 <div key={index} className={textColor}>
-                    <p className={`mb-2 ${titleClass}`}>{item.title}</p>
+                    <p className={`mb-2 ${titleClass}`}><span dangerouslySetInnerHTML={{ __html: highlightStrong(item.title) }} /></p>
                     <p>{item.description}</p>
                 </div>
             ))}

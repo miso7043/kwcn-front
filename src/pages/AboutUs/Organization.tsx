@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Organization = () => (
   <div style={{ 
     backgroundColor: '#000000', 

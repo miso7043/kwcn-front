@@ -67,6 +67,9 @@
     "job12": "12 교육보조",
     "job13": "13 사회복지",
     "job14": "14 웹디자인/개발",
-    "navigationDescription": "다른 강의로 이동하려면 아래 버튼을 클릭하세요"
+    "navigationDescription": "다른 강의로 이동하려면 아래 버튼을 클릭하세요",
+
+    "note": "참고",
+    "visitSite": "사이트 방문하기"
   }
 }

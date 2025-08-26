@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Grid, Paper } from '@mui/material';
+import { Box, Typography, Container, Paper } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 interface TimelineItem {
@@ -72,9 +72,21 @@ const History = () => {
         </Box>
 
         {/* 연혁 타임라인 */}
-        <Grid container spacing={4}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 4,
+          }}
+        >
           {timelineItems.map((item: TimelineItem, index: number) => (
-            <Grid item xs={12} md={6} key={index}>
+            <Box
+              key={index}
+              sx={{
+                flex: { xs: '1 1 100%', md: '1 1 calc(50% - 16px)' },
+                minWidth: 0,
+              }}
+            >
               <Paper
                 elevation={3}
                 sx={{
@@ -95,14 +107,21 @@ const History = () => {
                   {item.description}
                 </Typography>
               </Paper>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
 
         {/* 미션 및 비전 섹션 */}
         <Box sx={{ mt: 8 }}>
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 4,
+              flexDirection: { xs: 'column', md: 'row' },
+              alignItems: 'stretch',
+            }}
+          >
+            <Box sx={{ flex: 1 }}>
               <Paper
                 elevation={3}
                 sx={{
@@ -111,6 +130,7 @@ const History = () => {
                   backdropFilter: 'blur(10px)',
                   borderRadius: 2,
                   textAlign: 'center',
+                  height: '100%',
                 }}
               >
                 <Typography variant="h4" component="h3" gutterBottom sx={{ color: 'primary.main', fontWeight: 'bold' }}>
@@ -120,8 +140,8 @@ const History = () => {
                   {t('mission.description')}
                 </Typography>
               </Paper>
-            </Grid>
-            <Grid item xs={12} md={6}>
+            </Box>
+            <Box sx={{ flex: 1 }}>
               <Paper
                 elevation={3}
                 sx={{
@@ -130,6 +150,7 @@ const History = () => {
                   backdropFilter: 'blur(10px)',
                   borderRadius: 2,
                   textAlign: 'center',
+                  height: '100%',
                 }}
               >
                 <Typography variant="h4" component="h3" gutterBottom sx={{ color: 'primary.main', fontWeight: 'bold' }}>
@@ -139,8 +160,8 @@ const History = () => {
                   {t('vision.description')}
                 </Typography>
               </Paper>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </Box>
       </Container>
     </Box>

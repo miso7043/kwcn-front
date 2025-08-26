@@ -87,6 +87,10 @@ const Navbar: React.FC = () => {
     if (link) {
       setActiveMenu(link);
       setIsMobileMenuOpen(false); // 모바일에서 메뉴 클릭 시 메뉴 닫기
+      // 페이지 이동 후 스크롤 맨 위로 이동
+      setTimeout(() => {
+        window.scrollTo({ top: 0}); //, behavior: 'smooth' });
+      }, 0);
     }
   };
 
@@ -128,7 +132,9 @@ const Navbar: React.FC = () => {
         <Link 
           to={item.link!} 
           className={`menu-item ${isActive ? 'active' : ''} ${activeMenu === item.link ? 'clicked' : ''}`}
-          onClick={() => handleMenuClick(item.link)}
+          onClick={e => {
+            handleMenuClick(item.link);
+          }}
         >
           {t(item.nameKey)}
         </Link>

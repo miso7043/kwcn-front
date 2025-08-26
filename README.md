@@ -516,3 +516,20 @@ REACT_APP_DEBUG_MODE=true
 - **react-app-env.d.ts**: TypeScript 환경 타입 정의
 
 이 구조는 KCWN 웹사이트의 요구사항에 맞춰 설계되었으며, 확장성과 유지보수성을 고려했습니다. 각 기능별로 모듈화되어 있어 개발과 관리가 용이할 것입니다.
+
+---
+
+### [2025-08-25] useLanguage.ts 다국어 연동 변경 내역
+
+- 기존: 항상 `{ language: 'ko', setLanguage: () => {} }`를 반환하여 언어 변경이 불가능했음.
+- 변경: `react-i18next`의 `useTranslation` 훅을 사용하여 실제 i18n의 현재 언어(`i18n.language`)와 언어 변경 함수(`i18n.changeLanguage`)를 반환하도록 수정함.
+- 적용 코드 예시:
+  ```ts
+  import { useTranslation } from 'react-i18next';
+  const useLanguage = () => {
+    const { i18n } = useTranslation();
+    return { language: i18n.language, setLanguage: i18n.changeLanguage };
+  };
+  export default useLanguage;
+  ```
+- 효과: i18n 언어 변경 시 Job3 등에서 언어별 데이터가 정상적으로 전환됨.
