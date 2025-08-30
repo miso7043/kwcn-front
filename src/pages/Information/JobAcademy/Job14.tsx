@@ -9,7 +9,7 @@ import { job14Text as job14Text_en } from './locales/Job14_en';
 const Job14: React.FC = () => {
   const { language } = useLanguage();
   const job14Text = useMemo(() => (language === 'ko' ? job14Text_ko : job14Text_en), [language]);
-  return (<div className="min-h-screen bg-gray-900">
+  return (<div className="min-h-screen">
     {/* 헤더 섹션 */}
     <div className="relative overflow-hidden">
       <div

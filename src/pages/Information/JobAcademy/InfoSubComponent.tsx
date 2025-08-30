@@ -1,4 +1,5 @@
 import React from 'react';
+import { highlightStrong } from '../../../components/utils/Util';
 
 export interface SubSection {
     title: string;
@@ -154,10 +155,6 @@ export interface StepGuideProps {
     textColor?: string;
 }
 
-// **문자열** 패턴을 <strong>문자열</strong>로 변환하는 함수
-function highlightStrong(text: string): string {
-    return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-}
 
 // h3 + ul 패턴을 위한 컴포넌트
 export const SubSectionWithList: React.FC<SubSection> = ({ title, items, titleColor = "text-white", borderColor = "border-blue-500" }) => (

@@ -27,7 +27,7 @@ const App = () => (
         sx={{
           minHeight: '100vh',
           width: '100vw',
-          bgcolor: 'background.default',
+          background: 'linear-gradient(to bottom, #1a1a13, #12120f)',
           px: 0,
         }}
       >

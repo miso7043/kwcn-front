@@ -18,7 +18,7 @@ const Job10: React.FC = () => {
   const { language } = useLanguage();
   const job10Text = React.useMemo(() => (language === 'ko' ? job10Text_ko : job10Text_en), [language]);
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen">
       {/* 헤더 섹션 */}
       <div className="relative overflow-hidden">
         <div
