@@ -1,0 +1,15 @@
+# public_html/react_caregiver/.htaccess
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # HTTPS 강제
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # 정적 파일 요청은 그대로 반환
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # 나머지 모든 요청은 React index.html로 fallback
+    RewriteRule ^ index.html [L]
+</IfModule>
