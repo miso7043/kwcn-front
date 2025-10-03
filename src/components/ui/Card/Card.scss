@@ -1,0 +1,545 @@
+// Card Component Styles
+// CSS 전용 카드 스와이퍼/캐러셀 구현
+
+/* 기본 Card 스타일 */
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &--default {
+    box-shadow: none;
+  }
+  
+  &--elevated {
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    &:hover {
+      box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &--outlined {
+    border: 2px solid #e5e7eb;
+    box-shadow: none;
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  &__content {
+    padding: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+    
+    /* 애니메이션 초기 상태 */
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+    
+    /* 애니메이션 활성화 상태 */
+    .card-carousel__item.animate & {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0);
+      transition-delay: 0.1s;
+    }
+  }
+
+  &__description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    
+    /* 애니메이션 초기 상태 */
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+    
+    /* 애니메이션 활성화 상태 */
+    .card-carousel__item.animate & {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+  }
+
+  &__info {
+    /* 애니메이션 초기 상태 */
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+    
+    /* 애니메이션 활성화 상태 */
+    .card-carousel__item.animate & {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0);
+      transition-delay: 0.5s;
+    }
+  }
+
+  &__extra-content {
+    margin-top: 1rem;
+    
+    /* 애니메이션 초기 상태 */
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+    
+    /* 애니메이션 활성화 상태 */
+    .card-carousel__item.animate & {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0);
+      transition-delay: 0.7s;
+    }
+  }
+}
+
+/* CSS 전용 Card Carousel/Swiper */
+.card-carousel {
+  position: relative;
+  width: 100%;
+  margin: 2rem 0;
+  padding: 0 80px; /* 전체 캐러셀에 여백 추가 */
+  
+  @media (max-width: 767px) {
+    padding: 0 60px; /* 모바일에서 여백 조정 */
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 20px; /* 작은 화면에서 최소 여백 */
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    /* color는 Tailwind 클래스로 제어됨 */
+  }
+
+  &__container {
+    position: relative;
+    width: var(--container-width, 100%); /* JavaScript에서 계산된 최적 너비 사용 */
+    max-width: 100%; /* 화면을 넘지 않도록 */
+    overflow: visible; /* 화살표 버튼이 보이도록 변경 */
+    border-radius: 16px;
+    margin: 0 auto;
+  }
+
+  &__scroll {
+    display: flex;
+    gap: var(--card-margin, 24px);
+    padding: var(--card-margin, 24px);
+    overflow-x: hidden; /* 스크롤바 완전히 숨기고 화살표로만 조작 */
+    scroll-behavior: smooth;
+    border-radius: 16px; /* 스크롤 영역에 radius 적용 */
+    
+    /* 스크롤 스냅 설정 */
+    scroll-snap-type: x mandatory;
+    scroll-padding: var(--card-margin, 24px);
+    
+    /* 스크롤바 숨기기 (기본) */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    /* 스크롤바 보이기 옵션 */
+    &--scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+      
+      &::-webkit-scrollbar {
+        display: block;
+        height: 8px;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+
+  &__item {
+    flex: 0 0 auto;
+    width: var(--card-width, 320px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    
+    /* CSS 앵커 포지셔닝 지원 */
+    position: relative;
+  }
+
+  &__card {
+    height: 100%;
+    min-height: 300px;
+  }
+
+  /* 네비게이션 화살표 */
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    cursor: pointer;
+    z-index: 10; /* z-index 높임 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 그림자 추가로 가시성 향상 */
+    
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    &:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      
+      &:hover {
+        background: rgba(0, 0, 0, 0.7);
+        transform: translateY(-50%);
+      }
+    }
+    
+    &--prev {
+      left: -30px; /* 컨테이너 바깥쪽으로 배치 */
+    }
+    
+    &--next {
+      right: -30px; /* 컨테이너 바깥쪽으로 배치 */
+    }
+    
+    /* 모바일에서 화살표 조정 */
+    @media (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+      
+      &--prev {
+        left: -25px; /* 모바일에서 조금 더 가깝게 */
+      }
+      
+      &--next {
+        right: -25px; /* 모바일에서 조금 더 가깝게 */
+      }
+    }
+    
+    /* 작은 화면에서 화살표 조정 */
+    @media (max-width: 480px) {
+      width: 36px;
+      height: 36px;
+      
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+      
+      &--prev {
+        left: -15px; /* 작은 화면에서는 거의 안쪽으로 */
+      }
+      
+      &--next {
+        right: -15px; /* 작은 화면에서는 거의 안쪽으로 */
+      }
+    }
+  }
+
+  /* 인디케이터 점들 */
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(1.2);
+    }
+    
+    /* 활성 상태 */
+    &--active {
+      background: #22c55e;
+      transform: scale(1.2);
+      
+      &:hover {
+        background: #16a34a;
+      }
+    }
+  }
+
+  /* CSS 앵커 기반 스크롤 버튼 (선택사항) */
+  &__anchor-buttons {
+    display: none; /* 기본적으로 숨김, 필요시 보이기 */
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  &__anchor-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+    
+    &:target {
+      background: #22c55e;
+      color: white;
+    }
+  }
+
+}
+
+/* 부드러운 스크롤링 전역 설정 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 현대적인 CSS 앵커 포지셔닝 지원 (실험적) */
+@supports (anchor-name: --test) {
+  .card-carousel__item {
+    anchor-name: attr(data-anchor-name);
+  }
+  
+  .card-carousel__arrow--next {
+    position-anchor: --card-current;
+    position-area: inline-end;
+  }
+  
+  .card-carousel__arrow--prev {
+    position-anchor: --card-current;
+    position-area: inline-start;
+  }
+}
+
+/* 접근성 향상 */
+@media (prefers-reduced-motion: reduce) {
+  .card-carousel__scroll {
+    scroll-behavior: auto;
+  }
+  
+  .card {
+    transition: none;
+    
+    &--elevated:hover {
+      transform: none;
+    }
+  }
+}
+
+/* 고대비 모드 지원 */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid white;
+    background: black;
+    
+    &__title {
+      color: white;
+    }
+    
+    &__description {
+      color: #ccc;
+    }
+  }
+  
+  .card-carousel__arrow {
+    background: white;
+    color: black;
+    border: 2px solid black;
+  }
+  
+  .card-carousel__dot {
+    background: white;
+    border: 2px solid black;
+  }
+}
+
+/* 포커스 스타일 */
+.card-carousel__arrow:focus,
+.card-carousel__dot:focus,
+.card-carousel__anchor-button:focus {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* 터치 디바이스 최적화 */
+@media (hover: none) and (pointer: coarse) {
+  .card-carousel__arrow {
+    width: 44px;
+    height: 44px;
+    
+    /* 터치 디바이스에서는 기본 위치 유지 */
+  }
+  
+  .card-carousel__dot {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 480px) {
+  .card-carousel {
+    margin: 1rem 0;
+    
+    &__title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    &__scroll {
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+    
+    &__item {
+      width: min(280px, 85vw);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-carousel__item {
+    width: 350px;
+  }
+}
+
+/* 다크 테마 대응 */
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    
+    &--outlined {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+/* 프린트 스타일 */
+@media print {
+  .card-carousel {
+    &__arrow,
+    &__dots,
+    &__anchor-buttons {
+      display: none;
+    }
+    
+    &__scroll {
+      overflow: visible;
+      display: block;
+    }
+    
+    &__item {
+      width: 100%;
+      margin-bottom: 1rem;
+      break-inside: avoid;
+    }
+  }
+}
+
+/* 카드 콘텐츠 애니메이션 keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}

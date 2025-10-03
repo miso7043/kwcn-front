@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Dialog, DialogContent, DialogTitle, Typography, Box, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import HistoryImgGallery from '../ImageGallery/HistoryImgGallery';
-import type { HistoryImage } from '../ImageGallery/HistoryImgGallery';
+// import type { HistoryImage } from '../ImageGallery/HistoryImgGallery';
 import type { TimelineItem } from '../../../pages/AboutUs/locales/historyType';
 
 interface HistoryCardProps {

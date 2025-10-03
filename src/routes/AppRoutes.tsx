@@ -28,6 +28,8 @@ import MemberLogin from '../pages/MemberLogin';
 import DonateNow from '../pages/DonateNow';
 import Volunteer from '../pages/GetInvolved/Volunteer';
 
+import CardCarouselDemo from '../components/ui/Card/CardCarouselDemo';
+
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Home />} />
@@ -58,6 +60,8 @@ const AppRoutes = () => (
     <Route path="/getinvolved/volunteer" element={<Volunteer />} />
     <Route path="/login" element={<MemberLogin />} />
     <Route path="/donate" element={<DonateNow />} />
+
+    <Route path="/temp" element={<CardCarouselDemo />} />
   </Routes>
 );
 

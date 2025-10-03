@@ -97,7 +97,7 @@ const Home = () => {
               <div key={i} className="bg-gray-50/10 p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
                   <card.icon className="h-8 w-8 text-red-600 mr-3" />
-                  <h3 className="text-xl font-semibold">{card.title}</h3>
+                  <h3 className="text-xl  text-white font-semibold">{card.title}</h3>
                 </div>
                 <p className="text-gray-300">{card.description}</p>
               </div>
@@ -120,7 +120,7 @@ const Home = () => {
                   <div className="bg-gradient-to-br from-gray-200/30 to-gray-500/30 rounded-full p-6 inline-block mb-4">
                     <item.icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <h3 className="text-xl text-white font-semibold mb-2">{item.title}</h3>
                   <p className="text-gray-200">{item.description}</p>
                 </div>
               ))}
@@ -132,7 +132,7 @@ const Home = () => {
       {/* Programs Section */}
       <section id="programs" className="relative z-20 py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-300 mb-12">
+          <h2 className="text-4xl font-bold text-center text-white mb-12">
             {homeText.programs.heading}
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -144,7 +144,7 @@ const Home = () => {
                 <div className="bg-red-600 text-white p-3 rounded-full inline-block mb-4">
                   <program.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">{program.title}</h3>
+                <h3 className="text-2xl text-white font-semibold mb-4">{program.title}</h3>
                 <p className="text-gray-300 mb-6">{program.description}</p>
                 <a
                   href={program.link}
