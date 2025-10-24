@@ -28,7 +28,7 @@ import MemberLogin from '../pages/MemberLogin';
 import DonateNow from '../pages/DonateNow';
 import Volunteer from '../pages/GetInvolved/Volunteer';
 
-import GlassBoxDemo from '../components/ui/GlassBox/GlassBoxDemo';
+import GlassBoxDemo1 from '../components/ui/GlassBox/GlassBoxDemo1';
 // import CardCarouselDemo from '../components/ui/Card/CardCarouselDemo';
 
 const AppRoutes = () => (
@@ -62,7 +62,7 @@ const AppRoutes = () => (
     <Route path="/login" element={<MemberLogin />} />
     <Route path="/donate" element={<DonateNow />} />
 
-    <Route path="/temp" element={<GlassBoxDemo />} />
+    <Route path="/temp" element={<GlassBoxDemo1 />} />
   </Routes>
 );
 

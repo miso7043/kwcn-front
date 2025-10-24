@@ -5,14 +5,12 @@
   right: 0;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
   padding: 0;
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-container {
@@ -22,6 +20,8 @@
   align-items: center;
   padding: 0 2rem;
   height: 70px;
+
+  backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -44,8 +44,27 @@
   transform: scale(1.05);
 }
 
+.logo:hover .logo-desktop {
+  transform: scale(1.05);
+}
+
 .logo-mobile {
   display: none;
+}
+
+.logo-desktop {
+  display: block;
+  width: 120px;
+  height: 40px;
+  background-image: url("/imgs/logos/KWCN_logo_white.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled .logo-desktop {
+  background-image: url("/imgs/logos/KCWN_logo1.png");
 }
 
 .navbar-list {
@@ -122,19 +141,37 @@
   position: relative;
 }
 
+.sub-back {
+  /* 서브메뉴의 자식들은 blur이 안먹는다. */
+  /* 그래서 형제레벨의 박스를 만들어서 블러를 적용 */
+  display: none; /* JavaScript에서 제어 */
+  position: absolute;
+  z-index: -1; /* dropdown-content보다 낮게 설정 */
+  pointer-events: none; /* 마우스 이벤트 무시 */
+  transition: all 0.2s ease; /* 더 빠른 전환으로 반응성 향상 */
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(5px);
+  /* 위치와 크기는 JavaScript에서 동적으로 설정 */
+}
+
+/* 드롭다운 호버 시 dropdown-content 표시 */
+.dropdown:hover > .dropdown-content {
+  display: block;
+  animation: fadeInDown 0.3s ease;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background: rgba(255, 255, 255, 0.9);
   min-width: 220px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
   padding: 0.5rem 0;
   z-index: 1001;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.4);
   list-style: none; /* 리스트 스타일 제거 */
   margin: 0;
 }
@@ -179,7 +216,6 @@
   padding: 0.5rem 0;
   z-index: 1002;
   border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
   list-style: none; /* 리스트 스타일 제거 */
   margin: 0;
 }
@@ -351,31 +387,31 @@
     justify-content: space-between;
     background: rgba(0, 0, 0, 0.5);
   }
-  
+
   .logo {
     margin-right: 0;
     height: 40px;
     min-width: 100px;
   }
-  
+
   .logo-desktop {
-    display: none;
+    display: none !important;
   }
-  
+
   .logo-mobile {
     display: block;
   }
-  
+
   /* 데스크톱 메뉴 숨기기 */
   .navbar-right {
     display: none !important;
   }
-  
+
   /* 모바일 햄버거 버튼 보이기 */
   .mobile-menu-toggle {
     display: block !important;
   }
-  
+
   /* 모바일 메뉴 보이기 */
   .mobile-menu {
     display: block !important;
@@ -387,14 +423,14 @@
     height: 60px;
     background: rgba(0, 0, 0, 0.5);
   }
-  
+
   .logo img {
     height: 32px;
     width: auto;
     max-width: 150px;
     object-fit: contain;
   }
-  
+
   .mobile-menu {
     top: 60px;
     max-height: calc(100vh - 60px);

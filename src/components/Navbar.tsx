@@ -1,68 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitch from './common/Header/LanguageSwitch';
 import './Navbar.css';
-
-interface MenuItem {
-  nameKey: string;
-  link: string | null;
-  children?: MenuItem[];
-}
-
-const menuData: MenuItem[] = [
-  {
-    nameKey: "common:navigation.aboutUs",
-    link: null,
-    children: [
-      { nameKey: "common:about.history", link: "/about/history" },
-      { nameKey: "common:about.futurePlans", link: "/about/future" },
-      { nameKey: "common:about.finance", link: "/about/finance" },
-      { nameKey: "common:about.organization", link: "/about/organization" }
-    ]
-  },
-  { nameKey: "common:navigation.events", link: "/events" },
-  { nameKey: "common:navigation.media", link: "/media" },
-  {
-    nameKey: "common:navigation.information",
-    link: null,
-    children: [
-      {
-        nameKey: "common:information.jobAcademy",
-        link: null,
-          children: [
-            { nameKey: "common:information.job1", link: "/info/jobacademy/job1" },
-            { nameKey: "common:information.job2", link: "/info/jobacademy/job2" },
-            { nameKey: "common:information.job3", link: "/info/jobacademy/job3" },
-            { nameKey: "common:information.job4", link: "/info/jobacademy/job4" },
-            { nameKey: "common:information.job5", link: "/info/jobacademy/job5" },
-            { nameKey: "common:information.job6", link: "/info/jobacademy/job6" },
-            { nameKey: "common:information.job7", link: "/info/jobacademy/job7" },
-            { nameKey: "common:information.job8", link: "/info/jobacademy/job8" },
-            { nameKey: "common:information.job9", link: "/info/jobacademy/job9" },
-            { nameKey: "common:information.job10", link: "/info/jobacademy/job10" },
-            { nameKey: "common:information.job11", link: "/info/jobacademy/job11" },
-            { nameKey: "common:information.job12", link: "/info/jobacademy/job12" },
-            { nameKey: "common:information.job13", link: "/info/jobacademy/job13" },
-            { nameKey: "common:information.job14", link: "/info/jobacademy/job14" }
-          ]
-      },
-      {
-        nameKey: "common:information.tax",
-        link: "/info/taxGuide"
-      }
-    ]
-  },
-  {
-    nameKey: "common:navigation.getInvolved",
-    link: null,
-    children: [
-      { nameKey: "common:getInvolved.volunteer", link: "/getinvolved/volunteer" }
-    ]
-  },
-  { nameKey: "common:navigation.memberLogin", link: "/login" },
-  { nameKey: "common:navigation.donateNow", link: "/donate" }
-];
+import { menuData, type MenuItem } from './common/Navigation/menuData';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
@@ -70,6 +11,7 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const subMenuBackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,6 +44,81 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // 드롭다운 호버 시 sub-menu-back 위치 계산
+  const handleDropdownMouseEnter = (event: React.MouseEvent<HTMLLIElement>) => {
+    const dropdown = event.currentTarget;
+    const dropdownContent = dropdown.querySelector('.dropdown-content') as HTMLElement;
+    const subMenuBack = subMenuBackRef.current;
+    
+    if (dropdownContent && subMenuBack) {
+      const dropdownRect = dropdown.getBoundingClientRect();
+      const navbarRect = dropdown.closest('.navbar')?.getBoundingClientRect();
+      
+      if (navbarRect) {
+        // navbar를 기준으로 한 상대적 위치 계산
+        const relativeLeft = dropdownRect.left - navbarRect.left;
+        const relativeTop = dropdownRect.bottom - navbarRect.top;
+        
+        // 크기 측정을 위한 함수
+        const measureAndApply = () => {
+          // 드롭다운 콘텐츠를 일시적으로 표시하여 실제 크기 측정
+          const originalDisplay = dropdownContent.style.display;
+          const originalVisibility = dropdownContent.style.visibility;
+          dropdownContent.style.display = 'block';
+          dropdownContent.style.visibility = 'hidden'; // 보이지 않지만 크기는 측정 가능
+          
+          // 실제 드롭다운 콘텐츠의 크기 측정
+          const contentRect = dropdownContent.getBoundingClientRect();
+          const actualWidth = contentRect.width || 220; // 최소 너비 보장
+          const actualHeight = contentRect.height || 50; // 최소 높이 보장
+          
+          // 원래 상태로 복원
+          dropdownContent.style.display = originalDisplay;
+          dropdownContent.style.visibility = originalVisibility;
+          
+          // sub-menu-back 위치와 크기 설정
+          subMenuBack.style.display = 'block';
+          subMenuBack.style.left = `${relativeLeft}px`;
+          subMenuBack.style.top = `${relativeTop}px`;
+          subMenuBack.style.width = `${actualWidth}px`; // 실제 너비
+          subMenuBack.style.height = `${actualHeight}px`; // 실제 높이
+        };
+        
+        // 즉시 측정 시도
+        measureAndApply();
+        
+        // CSS 애니메이션이나 렌더링 지연을 고려한 재측정
+        setTimeout(measureAndApply, 50);
+      }
+    }
+  };
+
+  const handleDropdownMouseLeave = () => {
+    // 드롭다운에서 마우스가 나갈 때 약간의 지연을 두고 확인
+    setTimeout(() => {
+      const subMenuBack = subMenuBackRef.current;
+      if (subMenuBack) {
+        // 현재 hover 상태인 드롭다운이 있는지 확인
+        const hoveredDropdown = document.querySelector('.dropdown:hover');
+        
+        // hover 상태인 드롭다운이 없으면 sub-back 숨김
+        if (!hoveredDropdown) {
+          subMenuBack.style.display = 'none';
+        }
+      }
+    }, 100); // 마우스 이동 간의 지연을 고려
+  };
+
+  // navbar 전체에서 마우스가 나갈 때 모든 백그라운드 숨김
+  const handleNavbarMouseLeave = () => {
+    setTimeout(() => {
+      const subMenuBack = subMenuBackRef.current;
+      if (subMenuBack) {
+        subMenuBack.style.display = 'none';
+      }
+    }, 150);
+  };
+
   const renderMenuItem = (item: MenuItem, level: number = 0, isMobileMenu: boolean = false) => {
     const isActive = location.pathname === item.link;
     const hasChildren = item.children && item.children.length > 0;
@@ -114,7 +131,12 @@ const Navbar: React.FC = () => {
 
     if (hasChildren) {
       return (
-        <li key={item.nameKey} className={`dropdown ${level > 0 ? 'dropdown-sub' : ''} ${isMobileMenu ? 'mobile-dropdown' : ''}`}>
+        <li 
+          key={item.nameKey} 
+          className={`dropdown ${level > 0 ? 'dropdown-sub' : ''} ${isMobileMenu ? 'mobile-dropdown' : ''}`}
+          onMouseEnter={!isMobileMenu ? handleDropdownMouseEnter : undefined}
+          onMouseLeave={!isMobileMenu ? handleDropdownMouseLeave : undefined}
+        >
           <span 
             className={`menu-item ${hasActiveChild ? 'active' : ''} ${activeMenu === item.link ? 'clicked' : ''}`}
           >
@@ -132,7 +154,7 @@ const Navbar: React.FC = () => {
         <Link 
           to={item.link!} 
           className={`menu-item ${isActive ? 'active' : ''} ${activeMenu === item.link ? 'clicked' : ''}`}
-          onClick={e => {
+          onClick={() => {
             handleMenuClick(item.link);
           }}
         >
@@ -143,14 +165,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav 
+      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+      onMouseLeave={handleNavbarMouseLeave}
+    >
       <div className="navbar-container">
         <Link to="/" className="logo" onClick={handleLogoClick}>
-          <img 
-            src="/imgs/logos/KCWN_logo1.png" 
-            alt="KWCN Logo" 
-            className="logo-desktop"
-          />
+          <div className="logo-desktop"></div>
           <img 
             src="/imgs/logos/KCWN_logo.svg" 
             alt="KWCN Logo" 
@@ -189,6 +210,8 @@ const Navbar: React.FC = () => {
           <LanguageSwitch />
         </div>
       </div>
+
+      <div className="sub-back" ref={subMenuBackRef}></div>
     </nav>
   );
 };
