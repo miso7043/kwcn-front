@@ -70,6 +70,7 @@
 .navbar-list {
   display: flex;
   align-items: center;
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -79,6 +80,7 @@
 .navbar-right {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   flex: 1;
 }
@@ -89,9 +91,9 @@
 }
 
 /* 영어 메뉴일 때 간격 줄이기 */
-.navbar.lang-en .navbar-list > li {
+/* .navbar.lang-en .navbar-list > li {
   margin-right: 1rem;
-}
+} */
 
 .navbar-list > li:last-child {
   margin-right: 0;
@@ -128,6 +130,7 @@
 .menu-item.active,
 .menu-item.clicked {
   background: rgba(255, 248, 220, 0.8);
+  color: #000 !important; /* 선택된 메뉴는 항상 검정색 */
 }
 
 /* 서브메뉴가 있는 메인 메뉴의 기본 상태 */
@@ -145,6 +148,7 @@
 /* 서브메뉴 중 하나가 활성화되었을 때만 배경 적용 */
 .dropdown > .menu-item.active {
   background: rgba(255, 248, 220, 0.8);
+  color: #000 !important; /* 선택된 메뉴는 항상 검정색 */
 }
 
 .dropdown {
@@ -205,6 +209,10 @@
   font-weight: bold;
 }
 
+.dropdown-content .menu-item.active {
+  color: #000 !important; /* 선택된 드롭다운 메뉴는 항상 검정색 */
+}
+
 .dropdown-content .menu-item:hover {
   background: rgba(255, 248, 220, 0.7);
   transform: none;
@@ -245,6 +253,10 @@
   color: #333;
   padding: 0.6rem 1.5rem;
   font-weight: bold;
+}
+
+.dropdown-content-sub .menu-item.active {
+  color: #000 !important; /* 선택된 서브메뉴는 항상 검정색 */
 }
 
 .dropdown-content-sub .menu-item:hover {

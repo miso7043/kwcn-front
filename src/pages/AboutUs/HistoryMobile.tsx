@@ -29,7 +29,6 @@ const HistoryMobile: React.FC<HistoryMobileProps> = ({ historyText }) => {
   const [isCardOpen, setIsCardOpen] = useState(false);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // 카드 열기/닫기 함수
   const handleCardOpen = (item: TimelineItem) => {

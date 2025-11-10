@@ -8,17 +8,21 @@ export interface MenuItem {
 // 메뉴 데이터 정의
 export const menuData: MenuItem[] = [
   {
+    nameKey: "common:navigation.home",
+    link: "/"
+  },
+  {
     nameKey: "common:navigation.aboutUs",
     link: null,
     children: [
       { nameKey: "common:about.history", link: "/about/history" },
       { nameKey: "common:about.futurePlans", link: "/about/future" },
-      { nameKey: "common:about.finance", link: "/about/finance" },
-      { nameKey: "common:about.organization", link: "/about/organization" }
+      // { nameKey: "common:about.finance", link: "/about/finance" },
+      // { nameKey: "common:about.organization", link: "/about/organization" }
     ]
   },
-  { nameKey: "common:navigation.events", link: "/events" },
-  { nameKey: "common:navigation.media", link: "/media" },
+  // { nameKey: "common:navigation.events", link: "/events" },
+  // { nameKey: "common:navigation.media", link: "/media" },
   {
     nameKey: "common:navigation.information",
     link: null,
@@ -53,13 +57,13 @@ export const menuData: MenuItem[] = [
       }
     ]
   },
-  {
-    nameKey: "common:navigation.getInvolved",
-    link: null,
-    children: [
-      { nameKey: "common:getInvolved.volunteer", link: "/getinvolved/volunteer" }
-    ]
-  },
-  { nameKey: "common:navigation.memberLogin", link: "/login" },
+  // {
+  //   nameKey: "common:navigation.getInvolved",
+  //   link: null,
+  //   children: [
+  //     { nameKey: "common:getInvolved.volunteer", link: "/getinvolved/volunteer" }
+  //   ]
+  // },
+  // { nameKey: "common:navigation.memberLogin", link: "/login" },
   { nameKey: "common:navigation.donateNow", link: "/donate" }
 ];

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, IconButton, Modal, Backdrop } from '@mui/material';
+import { Box, Typography, IconButton, Modal } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
