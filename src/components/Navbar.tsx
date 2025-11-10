@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useLanguage from '../hooks/useLanguage';
 import LanguageSwitch from './common/Header/LanguageSwitch';
 import './Navbar.css';
 import { menuData, type MenuItem } from './common/Navigation/menuData';
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
+  const { language } = useLanguage();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -166,7 +168,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav 
-      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
+      className={`navbar ${isScrolled ? 'scrolled' : ''} ${language === 'en' ? 'lang-en' : 'lang-ko'}`}
       onMouseLeave={handleNavbarMouseLeave}
     >
       <div className="navbar-container">

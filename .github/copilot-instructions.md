@@ -41,50 +41,146 @@ Korean Women's Community Network (KWCN) front-end is a React 18 + TypeScript app
 ```
 src/
 ├── components/          # Reusable UI components
-│   ├── ui/             # Generic UI components (buttons, modals, galleries)
-│   │   └── ImageGallery/ # HistoryImgGallery.tsx with advanced features
-│   ├── common/         # Shared business components (navigation, headers)
-│   │   ├── Header.tsx   # Navigation, logo, language selector
-│   │   ├── Footer.tsx   # Site footer with contact info
-│   │   ├── MainLayout.tsx # Overall page layout wrapper
-│   │   └── Parallax.tsx # Parallax background component
-│   ├── features/       # Feature-specific components
-│   │   ├── home/       # Home page sections
-│   │   ├── about/      # About page components
-│   │   ├── events/     # Event-related components
-│   │   ├── media/      # Media gallery components
+│   ├── Navbar.tsx       # Main navigation component with dropdown logic
+│   ├── Navbar.css       # Navigation styling with blur effects
+│   ├── ui/              # Generic UI components
+│   │   ├── Button/      # Reusable button components
+│   │   ├── Card/        # Card components and carousel
+│   │   ├── EventCard/   # Event-specific card component
+│   │   ├── GlassBox/    # Glass morphism UI components
+│   │   ├── ImageGalleryHor/ # Standard image gallery components
+│   │   └── ImageZoom/   # Image zoom functionality
+│   ├── common/          # Shared business components
+│   │   ├── Header/      # Header components and language switch
+│   │   │   ├── Header.tsx
+│   │   │   ├── LanguageSwitch.tsx
+│   │   │   └── Navigation.tsx
+│   │   ├── Footer/      # Site footer with contact info
+│   │   ├── Layout/      # Layout wrapper components
+│   │   │   └── MainLayout.tsx
+│   │   ├── LoadingSpinner/ # Loading state components
+│   │   ├── Modal/       # Modal dialog components
+│   │   ├── Navigation/  # Navigation configuration
+│   │   │   └── menuData.ts # Menu structure and routes
+│   │   ├── Parallax.tsx # Parallax background component
+│   │   ├── CurveSvg.ts  # SVG curve utilities
+│   │   └── SVGDrawingAnimation.tsx # Animated SVG components
+│   ├── features/        # Feature-specific components
+│   │   ├── home/        # Home page sections
+│   │   ├── about/       # About page components
+│   │   ├── events/      # Event-related components
+│   │   ├── media/       # Media gallery components
 │   │   ├── information/ # Information page components
 │   │   ├── involvement/ # Get involved components
-│   │   └── auth/       # Authentication components
-│   └── utils/          # Utility components and functions
-├── pages/              # Route-level components
-│   ├── AboutUs/        # Nested page hierarchies
-│   ├── Information/    # Contains JobAcademy subdirectory
-│   │   └── JobAcademy/ # Job academy lecture pages (job1-job14)
-│   ├── GetInvolved/    # Feature-based organization
-│   └── homeLocales/    # Home page specific locale files
-├── hooks/              # Custom React hooks
-├── services/           # API and external service integrations
-├── i18n/               # Internationalization configuration
-│   └── locales/        # Language-specific content files
-├── store/              # Redux store configuration
-├── routes/             # Route definitions
-├── types/              # TypeScript type definitions
-├── utils/              # Utility functions
-└── styles/             # Global styles and themes
+│   │   └── auth/        # Authentication components
+│   └── utils/           # Utility components and functions
+│       ├── formatDate.ts # Date formatting utilities
+│       ├── Util.tsx     # General utility functions
+│       └── validateEmail.ts # Email validation
+├── pages/               # Route-level components
+│   ├── Home.tsx         # Main landing page
+│   ├── Home.module.css  # Home page specific styles
+│   ├── Events.tsx       # Events listing page
+│   ├── Media.tsx        # Media gallery page
+│   ├── About.tsx        # About overview page
+│   ├── Information.tsx  # Information overview page
+│   ├── Involvement.tsx  # Get involved page
+│   ├── Login.tsx        # User login page
+│   ├── MemberLogin.tsx  # Member-specific login
+│   ├── Profile.tsx      # User profile page
+│   ├── Register.tsx     # User registration
+│   ├── DonateNow.tsx    # Donation page
+│   ├── AboutUs/         # About section pages
+│   │   ├── History.tsx       # Organization history
+│   │   ├── History1.tsx      # Alternative history layout
+│   │   ├── HistoryDesktop.tsx # Desktop-specific history
+│   │   ├── HistoryMobile.tsx  # Mobile-specific history
+│   │   ├── FuturePlans.tsx   # Future plans and vision
+│   │   ├── Finance.tsx       # Financial records
+│   │   ├── Organization.tsx  # Organizational structure
+│   │   └── locales/          # About page translations
+│   ├── Information/     # Information section pages
+│   │   ├── JobAcademy.tsx    # Job academy overview
+│   │   ├── CoopHousing.tsx   # Co-op housing information
+│   │   ├── Suggestions.tsx   # Suggestions page
+│   │   ├── JobAcademy/       # Job academy lecture pages
+│   │   │   ├── Job1.tsx      # Lecture 1: 적성 파악 및 경력 탐색
+│   │   │   ├── Job2.tsx      # Lecture 2: 노동시장 정보
+│   │   │   ├── Job3.tsx      # Lecture 3: 이력서 작성
+│   │   │   ├── Job4.tsx      # Lecture 4: 면접 준비
+│   │   │   ├── Job5.tsx      # Lecture 5: 직장문화
+│   │   │   ├── Job6.tsx      # Lecture 6: BC주 고용기준법
+│   │   │   ├── Job7.tsx      # Lecture 7: 임금과 해고
+│   │   │   ├── Job8.tsx      # Lecture 8: 보건의료 1
+│   │   │   ├── Job9.tsx      # Lecture 9: 보건의료 2
+│   │   │   ├── Job10.tsx     # Lecture 10: 유아교육
+│   │   │   ├── Job11.tsx     # Lecture 11: 기술직
+│   │   │   ├── Job12.tsx     # Lecture 12: 교육보조
+│   │   │   ├── Job13.tsx     # Lecture 13: 사회복지
+│   │   │   ├── Job14.tsx     # Lecture 14: 웹디자인/개발
+│   │   │   ├── InfoSubComponent.tsx # Shared job academy components
+│   │   │   └── locales/      # Job academy specific translations
+│   │   └── TaxInfo/          # Tax information pages
+│   │       └── BC_taxGuide.tsx # BC tax guide
+│   ├── GetInvolved/     # Get involved section
+│   │   └── Volunteer.tsx     # Volunteer information
+│   └── homeLocales/     # Home page specific locale files
+│       ├── home_en.ts        # English home content
+│       └── home_ko.ts        # Korean home content
+├── hooks/               # Custom React hooks
+│   ├── useAuth.ts       # Authentication hook
+│   ├── useEvent.ts      # Event management hook
+│   └── useLanguage.ts   # Language switching hook
+├── services/            # API and external service integrations
+│   ├── api.ts           # Base API configuration
+│   ├── authService.ts   # Authentication services
+│   └── eventService.ts  # Event-related API calls
+├── i18n/                # Internationalization configuration
+│   ├── index.ts         # i18n setup and configuration
+│   ├── resources.ts     # Resource loading configuration
+│   └── locales/         # Language-specific content files
+│       ├── ko/          # Korean translations
+│       │   ├── common.json   # Common UI translations
+│       │   ├── about.json    # About section translations
+│       │   ├── events.json   # Events translations
+│       │   └── history.json  # History content
+│       └── en/          # English translations
+│           ├── common.json   # Common UI translations
+│           ├── about.json    # About section translations
+│           └── events.json   # Events translations
+├── store/               # Redux store configuration
+│   ├── index.ts         # Store setup and configuration
+│   ├── eventSlice.ts    # Event state management
+│   └── userSlice.ts     # User state management
+├── routes/              # Route definitions
+│   └── AppRoutes.tsx    # Main routing configuration
+├── types/               # TypeScript type definitions
+│   ├── common.ts        # Common type definitions
+│   ├── event.ts         # Event-related types
+│   └── user.ts          # User-related types
+├── utils/               # Utility functions
+├── styles/              # Global styles and themes
+│   └── global.scss      # Global SCSS styles
+├── assets/              # Static assets and resources
+├── App.tsx              # Main application component
+├── App.css              # Application-level styles
+├── main.tsx             # Application entry point
+├── index.css            # Base styles
+└── vite-env.d.ts        # Vite environment types
 ```
 
 ### Asset Organization (public/)
 ```
 public/
 ├── imgs/               # Image resources
-│   ├── logos/         # Brand logos and icons
-│   ├── bgs/          # Background images (main-1.webp, main-2.webp, main-3.webp)
-│   ├── events/       # Event photos and media
-│   ├── jobacademy/   # Job academy related images
-│   ├── history/      # Historical content images
-│   └── media/        # General media files
-└── locales/          # i18n locale files
+│   ├── logos/          # Brand logos and icons
+│   ├── bgs/            # Background images (main-1.webp, main-2.webp, main-3.webp)
+│   ├── events/         # Event photos and media
+│   ├── jobacademy/     # Job academy related images
+│   ├── history/        # Historical content images
+│   └── media/          # General media files
+├── locales/            # i18n locale files (legacy)
+└── htaccess           # Apache configuration
 ```
 
 ### File Naming Conventions

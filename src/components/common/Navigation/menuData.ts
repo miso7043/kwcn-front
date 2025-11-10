@@ -44,6 +44,10 @@ export const menuData: MenuItem[] = [
         ]
       },
       {
+        nameKey: "common:information.coopHousing",
+        link: "/info/coop-housing"
+      },
+      {
         nameKey: "common:information.tax",
         link: "/info/taxGuide"
       }

@@ -1,87 +1,83 @@
 import React, { useState } from 'react';
+import ImageZoomModal from '../ImageZoom/ImageZoomModal';
 
 interface GalleryImage {
   src: string;
   alt: string;
-  title?: string;
+  title: string;
 }
 
 interface ImageGalleryProps {
   images: GalleryImage[];
+  cardGridStyle?: React.CSSProperties;
+  cardWidth?: string;
+  gap?: string;
+  cardBgColor?: string;
 }
 
-const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const ImageGallery: React.FC<ImageGalleryProps> = ({ 
+  images, 
+  cardGridStyle,
+  cardWidth = '300px',
+  gap = 'gap-6',
+  cardBgColor = 'bg-gray-800/40'
+}) => {
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+  const handleImageClick = (image: GalleryImage) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
   };
 
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
+  const defaultGridStyle = {
+    '--cardWidth': cardWidth,
+    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, var(--cardWidth)), 1fr))'
+  } as React.CSSProperties;
 
-  if (!images || images.length === 0) {
-    return null;
-  }
+  const finalGridStyle = cardGridStyle || defaultGridStyle;
 
   return (
-    <div className="w-full max-w-4xl mx-auto relative">
-      <div className="relative flex items-center bg-slate-100 rounded-lg overflow-hidden shadow-lg">
-        <button 
-          className="bg-black/50 text-white text-2xl px-4 py-16 cursor-pointer hover:bg-black/70 transition-colors min-w-[50px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
-          onClick={goToPrevious}
-          aria-label="Previous image"
-        >
-          ❮
-        </button>
-        
-        <div className="flex-1 relative min-h-[300px] flex items-center justify-center">
-          <img 
-            src={images[currentIndex].src} 
-            alt={images[currentIndex].alt}
-            className="max-w-full max-h-96 w-auto h-auto object-contain rounded"
-          />
-          {images[currentIndex].title && (
-            <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 text-center font-medium">
-              {images[currentIndex].title}
-            </div>
-          )}
-        </div>
-        
-        <button 
-          className="bg-black/50 text-white text-2xl px-4 py-16 cursor-pointer hover:bg-black/70 transition-colors min-w-[50px] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
-          onClick={goToNext}
-          aria-label="Next image"
-        >
-          ❯
-        </button>
-      </div>
-      
-      <div className="flex justify-center gap-2 mt-4">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            className={`w-3 h-3 rounded-full border-none cursor-pointer transition-colors ${
-              index === currentIndex 
-                ? 'bg-blue-500' 
-                : 'bg-gray-300 hover:bg-gray-400'
-            }`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Go to image ${index + 1}`}
-          />
+    <>
+      <div className={`grid ${gap}`} style={finalGridStyle}>
+        {images.map((image, index) => (
+          <div 
+            key={index} 
+            className={`${cardBgColor} rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105 relative cursor-pointer`}
+            onClick={() => handleImageClick(image)}
+          >
+            <img 
+              src={image.src} 
+              alt={image.alt}
+              className="w-full h-48 object-cover"
+              onError={(e) => {
+                console.error('Image failed to load:', image.src);
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+            {image.title && (
+              <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-3">
+                <h3 className="text-white font-semibold text-lg">{image.title}</h3>
+              </div>
+            )}
+          </div>
         ))}
       </div>
-    </div>
+      
+      <ImageZoomModal 
+        src={selectedImage?.src || ''}
+        alt={selectedImage?.alt || ''}
+        open={isModalOpen}
+        onClose={handleCloseModal}
+      />
+    </>
   );
 };
 
 export default ImageGallery;
+export type { GalleryImage };

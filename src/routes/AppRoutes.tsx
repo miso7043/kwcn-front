@@ -24,6 +24,7 @@ import Job13 from '../pages/Information/JobAcademy/Job13';
 import Job14 from '../pages/Information/JobAcademy/Job14';
 
 import TaxGuide from '../pages/Information/TaxInfo/BC_taxGuide';
+import CoopHousing from '../pages/Information/CoopHousing/CoopHousing';
 import MemberLogin from '../pages/MemberLogin';
 import DonateNow from '../pages/DonateNow';
 import Volunteer from '../pages/GetInvolved/Volunteer';
@@ -56,6 +57,7 @@ const AppRoutes = () => (
     <Route path="/info/jobacademy/job13" element={<Job13 />} />
     <Route path="/info/jobacademy/job14" element={<Job14 />} />
 
+    <Route path="/info/coop-housing" element={<CoopHousing />} />
     <Route path="/info/taxGuide" element={<TaxGuide />} />
 
     <Route path="/getinvolved/volunteer" element={<Volunteer />} />

@@ -43,8 +43,8 @@ kcwn-frontend/
 │   │   │   │   ├── Card.tsx
 │   │   │   │   └── Card.module.scss
 │   │   │   ├── ImageGallery/
-│   │   │   │   ├── ImageGallery.tsx
-│   │   │   │   └── ImageGallery.module.scss
+│   │   │   │   ├── ImageGalleryHor.tsx
+│   │   │   │   └── ImageGalleryHor.module.scss
 │   │   │   └── EventCard/
 │   │   │       ├── EventCard.tsx
 │   │   │       └── EventCard.module.scss

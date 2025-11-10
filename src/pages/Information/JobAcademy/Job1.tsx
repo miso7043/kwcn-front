@@ -1,6 +1,6 @@
 import React from 'react';
 import useLanguage from '../../../hooks/useLanguage';
-import ImageGallery from '../../../components/ui/ImageGallery/ImageGallery';
+import ImageGalleryHor from '../../../components/ui/ImageGallery/ImageGalleryHor';
 import JobAcademyNavigation from '../../../components/features/information/JobAcademyNavigation';
 import * as job1ko from './locales/Job1_ko';
 import * as job1en from './locales/Job1_en';
@@ -174,7 +174,7 @@ const Job1: React.FC = () => {
               {job1Text.galleryTitle}
               <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
             </h2>
-            <ImageGallery images={galleryImages} />
+            <ImageGalleryHor images={galleryImages} />
           </section>
 
           <div className="mt-8">

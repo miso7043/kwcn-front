@@ -88,6 +88,11 @@
   margin-right: 2rem;
 }
 
+/* 영어 메뉴일 때 간격 줄이기 */
+.navbar.lang-en .navbar-list > li {
+  margin-right: 1rem;
+}
+
 .navbar-list > li:last-child {
   margin-right: 0;
 }
@@ -103,6 +108,11 @@
   cursor: pointer;
   white-space: nowrap;
   background: transparent; /* 기본 배경을 투명으로 설정 */
+}
+
+/* 영어 메뉴일 때 패딩 줄이기 */
+.navbar.lang-en .menu-item {
+  padding: 0.8rem 0.6rem;
 }
 
 .navbar.scrolled .menu-item {
