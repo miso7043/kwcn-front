@@ -12,14 +12,15 @@ export const menuData: MenuItem[] = [
     link: "/"
   },
   {
-    nameKey: "common:navigation.aboutUs",
-    link: null,
-    children: [
-      { nameKey: "common:about.history", link: "/about/history" },
-      { nameKey: "common:about.futurePlans", link: "/about/future" },
+    nameKey: "common:about.history", link: "/about/history"
+    // nameKey: "common:navigation.aboutUs",
+    // link: null,
+    // children: [
+    //   { nameKey: "common:about.history", link: "/about/history" },
+      // { nameKey: "common:about.futurePlans", link: "/about/future" },
       // { nameKey: "common:about.finance", link: "/about/finance" },
       // { nameKey: "common:about.organization", link: "/about/organization" }
-    ]
+    // ]
   },
   // { nameKey: "common:navigation.events", link: "/events" },
   // { nameKey: "common:navigation.media", link: "/media" },

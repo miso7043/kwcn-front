@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
                     <div className={styles.brandSection}>
                         <Link to="/" className={styles.logoLink}>
                             <img
-                                src="/imgs/logos/KWCN_logo_white.png"
+                                src="/imgs/logos/KCWN_logo1.png"
                                 alt="KWCN Logo"
                                 className={styles.logo}
                             />

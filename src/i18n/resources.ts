@@ -14,11 +14,13 @@ import enCommon from './locales/en/common.json';
 import enEvents from './locales/en/events.json';
 import enAbout from './locales/en/about.json';
 import enHistory from './locales/en/history.json';
+import enDonate from './locales/en/donate.json';
 
 import koCommon from './locales/ko/common.json';
 import koEvents from './locales/ko/events.json';
 import koAbout from './locales/ko/about.json';
 import koHistory from './locales/ko/history.json';
+import koDonate from './locales/ko/donate.json';
 
 export const resources: Resources = {
   en: {
@@ -26,12 +28,14 @@ export const resources: Resources = {
     events: enEvents,
     about: enAbout,
     history: enHistory,
+    donate: enDonate,
   },
   ko: {
     common: koCommon,
     events: koEvents,
     about: koAbout,
     history: koHistory,
+    donate: koDonate,
   },
 };
 
@@ -48,7 +52,7 @@ export const loadResources = async (language: string, namespace: string) => {
 };
 
 // 네임스페이스 목록
-export const namespaces = ['common', 'events', 'about', 'history', 'forms'] as const;
+export const namespaces = ['common', 'events', 'about', 'history', 'forms', 'donate'] as const;
 
 // 지원 언어 목록
 export const supportedLanguages = ['en', 'ko'] as const;

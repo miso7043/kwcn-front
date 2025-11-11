@@ -1,13 +1,12 @@
 .footer {
-  background: linear-gradient(to bottom, #1a1a1a, #12120f);
-  color: #ffffff;
+  background: linear-gradient(to bottom, #ebebeb, #e9ecef);
+  color: #333333;
   padding: 3rem 0 1rem;
-  margin-top: auto;
 }
 
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 1rem auto 2rem auto;
   padding: 0 2rem;
 }
 
@@ -15,7 +14,6 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 3rem;
-  margin-bottom: 3rem;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -42,7 +40,7 @@
   }
   
   .description {
-    color: #cccccc;
+    color: #666666;
     line-height: 1.6;
     font-size: 0.95rem;
     margin: 0;
@@ -54,7 +52,7 @@
 .getInvolvedSection,
 .developerSection {
   .sectionTitle {
-    color: #ffffff;
+    color: #333333;
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -74,7 +72,7 @@
 }
 
 .link {
-  color: #cccccc;
+  color: #666666;
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.95rem;
@@ -90,7 +88,7 @@
     margin-bottom: 1rem;
     
     .contactLabel {
-      color: #ffffff;
+      color: #333333;
       font-weight: 500;
       margin-right: 0.5rem;
     }
@@ -101,13 +99,13 @@
       transition: color 0.3s ease;
       
       &:hover {
-        color: #ffffff;
+        color: #2c5aa0;
         text-decoration: underline;
       }
     }
     
     .contactText {
-      color: #cccccc;
+      color: #666666;
     }
   }
 }
@@ -117,7 +115,7 @@
     margin-bottom: 0.8rem;
     
     .donationTitle {
-      color: #ffffff;
+      color: #333333;
       font-weight: 500;
       display: block;
       margin-bottom: 0.5rem;
@@ -134,7 +132,7 @@
       }
       
       .donationLink {
-        color: #cccccc;
+        color: #666666;
         text-decoration: none;
         transition: color 0.3s ease;
         font-size: 0.9rem;
@@ -158,8 +156,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 2rem;
-  border-top: 1px solid #444444;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
   
   @media (max-width: 768px) {
     flex-direction: column;
@@ -171,7 +169,7 @@
 .copyright {
   p {
     margin: 0;
-    color: #cccccc;
+    color: #666666;
     font-size: 0.9rem;
   }
 }
@@ -186,7 +184,7 @@
 }
 
 .legalLink {
-  color: #cccccc;
+  color: #666666;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;

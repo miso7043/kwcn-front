@@ -1,6 +1,14 @@
+import React from 'react';
 import { changeLanguage, getCurrentLanguage } from '../../../i18n';
 
-const LanguageSwitch = () => {
+interface LanguageSwitchProps {
+  textColor?: string;
+  isScrolled?: boolean;
+}
+
+const LanguageSwitch: React.FC<LanguageSwitchProps> = ({
+  isScrolled = false
+}) => {
   const currentLang = getCurrentLanguage();
 
   const toggleLanguage = () => {
@@ -16,14 +24,22 @@ const LanguageSwitch = () => {
     return currentLang === 'ko' ? 'KR' : 'EN';
   };
 
+  // 스크롤 상태에 따른 스타일 정의
+  const buttonStyle = {
+    color: isScrolled ? '#000' : '#fff',
+    transition: 'color 0.3s ease',
+    cursor: 'pointer'
+  };
+
   return (
-    <button 
+    <button
       onClick={toggleLanguage}
-      className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white hover:text-gray-300 transition-colors"
+      className="flex items-center gap-2 px-3 py-2 text-sm font-medium hover:opacity-80 transition-all"
+      style={buttonStyle}
       title={currentLang === 'ko' ? '한국어' : 'English'}
     >
-      <img 
-        src={getFlagIcon()} 
+      <img
+        src={getFlagIcon()}
         alt={getLanguageText()}
         className="w-7 h-7 object-contain"
       />

@@ -138,7 +138,7 @@ const HistoryDesktop: React.FC<HistoryDesktopProps> = ({ historyText }) => {
           fill="none"
           stroke-dasharray="${pathLength}"
           stroke-dashoffset="${pathLength}"
-          style="animation: drawIconPath${index} 2s ease-in-out 0.5s forwards;"
+          style="animation: drawIconPath${index} 1s ease-in-out 0.5s forwards;"
         />
       </svg>
       <style>

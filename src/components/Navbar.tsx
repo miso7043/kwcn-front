@@ -186,7 +186,9 @@ const Navbar: React.FC = () => {
           <ul className="navbar-list">
             {menuData.map(item => renderMenuItem(item))}
           </ul>
-          <LanguageSwitch />
+          <LanguageSwitch 
+            isScrolled={isScrolled}
+          />
         </div>
         
         {/* 모바일 햄버거 버튼 - CSS로 제어 */}
@@ -209,7 +211,9 @@ const Navbar: React.FC = () => {
           {menuData.map(item => renderMenuItem(item, 0, true))}
         </ul>
         <div className="mobile-language-switch">
-          <LanguageSwitch />
+          <LanguageSwitch 
+            isScrolled={true}
+          />
         </div>
       </div>
 

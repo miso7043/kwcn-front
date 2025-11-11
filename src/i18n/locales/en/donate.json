@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "title": "DONATE",
+    "subtitle": "You can make a difference today. It starts with believing things can change."
+  },
+  "introduction": {
+    "title": "PLEASE GIVE. EVERY CONTRIBUTION MATTERS",
+    "description1": "Your entire donation goes directly to supporting our programs and services.",
+    "description2": "For donations exceeding $20, we will issue a donation receipt. Thank you for your generous contribution."
+  },
+  "methods": {
+    "title": "The Methods of Donations",
+    "cash": {
+      "title": "Donate by Cash",
+      "description": "Donations can be made in cash when participating in any of KCWN's events and workshops in person. Simply place money or change into the donation box located at the registration desk.",
+      "appreciation": "Your support is greatly appreciated!"
+    },
+    "etransfer": {
+      "title": "Donate by E-transfer",
+      "description": "Donations made through your online banking webpage. You can also send your donation via email.",
+      "email": "info@kcwn.ca",
+      "emailLabel": "Recipient's email address"
+    },
+    "creditCard": {
+      "title": "Donate by Credit Card",
+      "description": "Donate now using your credit card. Click the button to connect to the credit card payment gateway and complete your contribution securely.",
+      "donateButton": "DONATE NOW",
+      "formButton": "FILL IN DONATION FORM"
+    }
+  },
+  "links": {
+    "donateUrl": "https://kcwn.ca/?asp_action=show_pp&product_id=1627",
+    "formUrl": "https://kcwn.ca/donation-form/"
+  }
+}
