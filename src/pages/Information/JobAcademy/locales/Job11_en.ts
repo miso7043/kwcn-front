@@ -201,7 +201,7 @@ export const job11Text = {
     ]
   },
   serviceTrades: {
- режис: "Service Field",
+    режис: "Service Field",
     items: [
       "Cook",
       "Baker",
@@ -279,17 +279,22 @@ export const job11Text = {
   ],
   apprenticeshipSteps: [
     {
-      title: "Start in Secondary School",
-      description: "Participate in related programs during high school"
+      stepTitle: "Start in Secondary School",
+      stepDescription: "Participate in related programs during high school",
+      borderColor: "border-blue-400",
+      titleColor: "text-blue-900"
     },
     {
-      title: "College Institution Programs",
-      description: "Entry-level training programs at colleges and technical institutions"
+      stepTitle: "College Institution Programs",
+      stepDescription: "Entry-level training programs at colleges and technical institutions",
+      borderColor: "border-green-400",
+      titleColor: "text-green-900"
     },
     {
-      title: "Start in the Field",
-      description: "Begin an apprenticeship program while working in the field",
-      textColor: "text-green-200"
+      stepTitle: "Start in the Field",
+      stepDescription: "Begin an apprenticeship program while working in the field",
+      borderColor: "border-blue-400",
+      titleColor: "text-blue-900"
     }
   ],
   requiredDocuments: {

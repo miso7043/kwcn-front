@@ -279,17 +279,22 @@ export const job11Text = {
 	],
 	apprenticeshipSteps: [
 		{
-			title: "중등학교에서 시작",
-			description: "고등학교 재학 중 관련 프로그램 참여"
+			stepTitle: "중등학교에서 시작",
+			stepDescription: "고등학교 재학 중 관련 프로그램 참여",
+			borderColor: "border-blue-400",
+			titleColor: "text-blue-900"
 		},
 		{
-			title: "대학 기관 프로그램",
-			description: "대학 및 기술 기관의 초급 교육 프로그램"
+			stepTitle: "대학 기관 프로그램",
+			stepDescription: "대학 및 기술 기관의 초급 교육 프로그램",
+			borderColor: "border-green-400",
+			titleColor: "text-green-900"
 		},
 		{
-			title: "현장에서 시작",
-			description: "현장에서 일하며 견습 프로그램 시작",
-			textColor: "text-green-200"
+			stepTitle: "현장에서 시작",
+			stepDescription: "현장에서 일하며 견습 프로그램 시작",
+			borderColor: "border-green-400",
+			titleColor: "text-green-900"
 		}
 	],
 	requiredDocuments: {

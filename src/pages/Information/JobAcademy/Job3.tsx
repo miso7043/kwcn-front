@@ -1,3 +1,4 @@
+import { jobAcademyStyles } from './jobAcademyStyles';
 import React, { useState } from 'react';
 import ImageZoomModal from '../../../components/ui/ImageZoom/ImageZoomModal';
 import JobAcademyNavigation from '../../../components/features/information/JobAcademyNavigation';
@@ -10,12 +11,12 @@ import {
   SubSectionWithList,
   NumberedListComponent,
   IconListComponent,
-  QuestionListComponent,
+  // QuestionListComponent,
   SectionWithSubSectionsComponent
 } from './InfoSubComponent';
 
 const Job3: React.FC = () => {
-  const [zoomIdx, setZoomIdx] = useState<number|null>(null);
+  const [zoomIdx, setZoomIdx] = useState<number | null>(null);
   // const { t } = useTranslation(['info_job3']);
   const { language } = useLanguage();
 
@@ -42,71 +43,71 @@ const Job3: React.FC = () => {
 
 
   return (
-    <div className="min-h-screen">
+    <div className={jobAcademyStyles.section.minHeight}>
       {/* 헤더 섹션 */}
-      <div className="relative overflow-hidden">
+      <div className={jobAcademyStyles.containers.overflowHidden}>
         <div
-          className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
+          className={jobAcademyStyles.containers.heroBackground}
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
-          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+          <h1 className="pt-10 text-6xl md:text-8xl font-black text-white drop-shadow-2xl">
             {job3.job3Text.title}
           </h1>
         </div>
       </div>
 
       {/* Lecture 1 섹션 */}
-      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+      <div className={jobAcademyStyles.containers.lectureImageWrapper}>
         <img
           src="/imgs/jobacademy/lectureBack.webp"
           alt="Lecture Background"
-          className="w-full h-auto object-contain"
+          className={jobAcademyStyles.containers.imageResponsive}
         />
 
-        <div className="absolute left-[39%] top-[39%]">
-          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 3</h2>
+        <div className={jobAcademyStyles.absolutePositions.lectureNumberPos}>
+          <h2 className={jobAcademyStyles.headings.lectureNumber}>Lecture 3</h2>
         </div>
-        <div className="absolute left-[66%] top-[38%]">
-          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+        <div className={jobAcademyStyles.absolutePositions.lectureTitlePos}>
+          <h2 className={jobAcademyStyles.headings.lectureTitle}>
             {job3.job3Text.lectureSubtitle}
           </h2>
         </div>
       </div>
 
 
-      <div className="max-w-6xl mx-auto p-8">
+      <div className={jobAcademyStyles.containers.centerContainer}>
 
         {/* 강의 3 목표 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.lecture3Goal}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
         </section>
 
         {/* Cover Letter 작성법 배우기 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.coverLetterGuide}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <SubSectionWithList {...coverLetterThinking} />
         </section>
 
         {/* Cover Letter란 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.coverLetterWhat}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
-          <div className="grid gap-6 mb-6">
+          <div className={`${jobAcademyStyles.grids.singleColumn} ${jobAcademyStyles.spacing.marginBottom6}`}>
             <SubSectionWithList {...coverLetterDefinition} />
 
-            <div className="bg-gray-800 p-6 rounded-lg border-l-4 border-yellow-500">
-              <h3 className="text-yellow-300 text-xl font-semibold mb-4">{job3Text.coverLetterFAQTitle}</h3>
-              <div className="text-gray-200 space-y-2">
+            <div className={jobAcademyStyles.section.highlightInBox}>
+              <h3 className="text-yellow-800 text-xl font-semibold mb-4">{job3Text.coverLetterFAQTitle}</h3>
+              <div className={jobAcademyStyles.textColors.grayTextSpaced}>
                 <p><strong>{job3Text.coverLetterFAQ1}</strong></p>
                 <p><strong>{job3Text.coverLetterFAQ2}</strong></p>
               </div>
@@ -115,115 +116,124 @@ const Job3: React.FC = () => {
         </section>
 
         {/* Cover Letter 작성 고려사항 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.coverLetterConsider}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <IconListComponent {...coverLetterConsiderations} />
         </section>
 
         {/* Cover Letter의 구성 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.coverLetterStructure}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <NumberedListComponent {...coverLetterStructure} />
         </section>
 
         {/* Cover Letter에 있어야 하는 것들 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.coverLetterMust}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
-          <div className="space-y-4">
+          <div className={jobAcademyStyles.spacing.questionSpacing}>
             <IconListComponent {...coverLetterRequirements} />
           </div>
         </section>
 
         {/* Cover Letter를 쓸 때 해야 하는 것들 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.coverLetterDo}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <IconListComponent {...coverLetterDos} />
         </section>
 
         {/* Cover Letter를 쓸 때 하지 말아야 하는 것들 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.coverLetterDont}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <IconListComponent {...coverLetterDonts} />
         </section>
 
         {/* Resume 작성법 배우기 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.resumeGuide}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <SubSectionWithList {...resumeThinking} />
         </section>
 
         {/* Resume란 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.resumeWhat}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
-          <div className="bg-gray-800 p-6 rounded-lg mb-6 border-l-4 border-blue-500">
-            <p className="text-gray-200 text-lg leading-relaxed">
+          <div className={`${jobAcademyStyles.section.highlightInBox} mb-5`}>
+            <p className={jobAcademyStyles.textColors.grayTextLarge}>
               {job3Text.resumeDesc}
             </p>
           </div>
 
-          <QuestionListComponent {...resumeQuestions} />
+          <div className={`${jobAcademyStyles.grids.twoColumn}`}>
+            {resumeQuestions.questions.map((question, index) => (
+              <div key={index} className={`${jobAcademyStyles.containers.lightBox} shadow-sm border-l-4 p-6 ${resumeQuestions.borderColor}`}>
+                <h3 className={`${resumeQuestions.textColor} font-bold mb-2`}>{question}</h3>
+              </div>
+            ))}
+          </div>
+          
+          {/* <QuestionListComponent {...resumeQuestions} /> */}
         </section>
 
         {/* Resume를 쓸 때 고려할 것들 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.resumeConsider}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <SubSectionWithList {...brandingGuidelines} />
         </section>
 
         {/* Resume를 쓸 때 하지 말아야 하는 것들 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.resumeDont}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <IconListComponent {...resumeDonts} />
         </section>
 
-  <SectionWithSubSectionsComponent {...resumeRequirements} />
+        <SectionWithSubSectionsComponent {...resumeRequirements} />
 
         {/* Cover Letter와 Resume 작성시 꼭 해야 하는 것 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job3Text.mustDo}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <NumberedListComponent {...essentialTasks} />
 
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className={`${jobAcademyStyles.grids.twoColumn} mt-8`}>
             {[
               {
                 title: job3Text.sampleResume1,
@@ -237,12 +247,12 @@ const Job3: React.FC = () => {
               },
             ].map((item, idx) => (
               <React.Fragment key={item.src}>
-                <div className="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-500 cursor-pointer" onClick={() => setZoomIdx(idx)}>
-                  <h3 className="text-white text-lg font-bold mb-4">{item.title}</h3>
+                <div className="bg-amber-200/60 p-6 rounded-lg border-l-4 border-blue-500 cursor-pointer shadow-lg" onClick={() => setZoomIdx(idx)}>
+                  <h3 className={jobAcademyStyles.headings.h3}>{item.title}</h3>
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-full rounded-lg shadow-lg"
+                    className={jobAcademyStyles.containers.fullWidthImage}
                   />
                 </div>
                 {zoomIdx === idx && (
@@ -259,7 +269,9 @@ const Job3: React.FC = () => {
         </section>
 
         {/* Job Academy 네비게이션 */}
-        <JobAcademyNavigation currentJobId={3} />
+        <section className={jobAcademyStyles.section.basic}>
+          <JobAcademyNavigation currentJobId={3} />
+        </section>
       </div>
     </div>
   );

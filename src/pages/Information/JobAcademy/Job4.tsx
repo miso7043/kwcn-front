@@ -1,3 +1,4 @@
+import { jobAcademyStyles } from './jobAcademyStyles';
 
 import React from 'react';
 import JobAcademyNavigation from '../../../components/features/information/JobAcademyNavigation';
@@ -11,58 +12,58 @@ const Job4: React.FC = () => {
   const { language } = useLanguage();
   const job4Text = useMemo(() => (language === 'ko' ? job4Text_ko : job4Text_en), [language]);
   return (
-    <div className="min-h-screen">
+    <div className={jobAcademyStyles.section.minHeight}>
       {/* 헤더 섹션 */}
-      <div className="relative overflow-hidden">
+      <div className={jobAcademyStyles.containers.overflowHidden}>
         <div
-          className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
+          className={jobAcademyStyles.containers.heroBackground}
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
-          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+          <h1 className="pt-10 text-6xl md:text-8xl font-black text-white drop-shadow-2xl">
             {job4Text.title}
           </h1>
         </div>
       </div>
 
       {/* Lecture 4 섹션 */}
-      <div className="relative max-w-[90%] md:max-w-[80%] mx-auto rounded-lg overflow-hidden mt-3">
+      <div className={jobAcademyStyles.containers.lectureImageWrapper}>
         <img
           src="/imgs/jobacademy/lectureBack.webp"
           alt="Lecture Background"
-          className="w-full h-auto object-contain"
+          className={jobAcademyStyles.containers.imageResponsive}
         />
 
-        <div className="absolute left-[39%] top-[39%]">
-          <h2 className="font-bold text-black drop-shadow-lg text-[clamp(1rem,2.5vw,3rem)]">Lecture 4</h2>
+        <div className={jobAcademyStyles.absolutePositions.lectureNumberPos}>
+          <h2 className={jobAcademyStyles.headings.lectureNumber}>Lecture 4</h2>
         </div>
-        <div className="absolute left-[66%] top-[38%]">
-          <h2 className="text-[clamp(1rem,2.5vw,3rem)] font-bold text-white drop-shadow-lg">
+        <div className={jobAcademyStyles.absolutePositions.lectureTitlePos}>
+          <h2 className={jobAcademyStyles.headings.lectureTitle}>
             {job4Text.lectureSubtitle}
           </h2>
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto p-8">
+      <div className={jobAcademyStyles.containers.centerContainer}>
 
         {/* 강의 4 목표 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             Lecture 4 Goal
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
-          <div className="bg-gray-800 p-6 rounded-lg mt-6">
-            <p className="text-gray-200 text-lg">
+          <div className={jobAcademyStyles.containers.lightBox}>
+            <p className={jobAcademyStyles.textColors.grayTextLarge}>
               • {job4Text.lecture4Goal}
             </p>
           </div>
         </section>
 
         {/* 인터뷰 준비하기 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job4Text.interviewPrep}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <ThinkingBoxComponent
@@ -78,10 +79,10 @@ const Job4: React.FC = () => {
         />
 
         {/* 인터뷰 준비 단계 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job4Text.interviewPrepStepsSectionTitle}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <TasksListComponent tasks={job4Text.interviewPrepSteps.map(step => ({
@@ -104,14 +105,14 @@ const Job4: React.FC = () => {
         />
 
         {/* STAR 기법 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job4Text.starMethodSectionTitle}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
-          <div className="mb-6">
-            <p className="text-gray-200 mb-4 leading-relaxed">
+          <div className={jobAcademyStyles.spacing.marginBottom6}>
+            <p className={jobAcademyStyles.textColors.grayTextLarge}>
               {job4Text.starMethodGuide}
             </p>
           </div>
@@ -120,10 +121,10 @@ const Job4: React.FC = () => {
         </section>
 
         {/* 면접 후 할 일 */}
-        <section className="bg-black mb-8 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-          <h2 className="text-white text-3xl font-bold mb-6 pb-2 border-b-4 border-blue-500 relative">
+        <section className={jobAcademyStyles.section.basic}>
+          <h2 className={jobAcademyStyles.sectionTitle}>
             {job4Text.postInterviewSectionTitle}
-            <span className="absolute bottom-0 left-0 w-12 h-1 bg-red-500 -mb-1"></span>
+            <span className={jobAcademyStyles.sectionTitleAccent}></span>
           </h2>
 
           <TasksListComponent tasks={job4Text.postInterviewTasks} />
@@ -136,7 +137,9 @@ const Job4: React.FC = () => {
         />
 
         {/* Job Academy 네비게이션 */}
-        <JobAcademyNavigation currentJobId={4} />
+        <section className={jobAcademyStyles.section.basic}>
+          <JobAcademyNavigation currentJobId={4} />
+        </section>
       </div>
     </div>
   );

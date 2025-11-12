@@ -19,7 +19,7 @@ export default function TaxGuide() {
           className="relative bg-cover bg-center bg-no-repeat min-h-[300px] flex flex-col justify-center items-center"
           style={{ backgroundImage: "url('/imgs/jobacademy/jobTitleBack.webp')" }}
         >
-          <h1 style={{ paddingTop: '2.5rem', fontSize: '5rem', fontWeight: '900', textShadow: '3px 3px 6px rgba(0,0,0,0.9)', color: 'white' }}>
+          <h1 className="pt-10 text-6xl md:text-8xl font-black text-white drop-shadow-2xl">
             {tax_text.hero.title}
           </h1>
         </div>

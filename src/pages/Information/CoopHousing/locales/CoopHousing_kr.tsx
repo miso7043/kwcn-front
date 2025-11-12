@@ -83,7 +83,7 @@ export const disadvantagesSection = {
   description: "협동조합 주택에는 많은 장점이 있지만, 잠재적 조합원들이 이해해야 할 절충안도 있습니다:",
   cards: disadvantageCards,
   bgColor: 'bg-red-800/20',
-  titleColor: 'text-red-400'
+  titleColor: 'text-red-300'
 };
 
 // Gallery section content

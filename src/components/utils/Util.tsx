@@ -12,3 +12,8 @@ export function renderWithLineBreaks(text: string): ReactNode {
 export  function highlightStrong(text: string): string {
     return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 }
+
+// 문자열 앞에 붙은 숫자와 점, 공백을 제거하는 함수
+export function removeLeadingNumbers(text: string): string {
+    return text.replace(/^\d+\.?\s*/, '');
+}

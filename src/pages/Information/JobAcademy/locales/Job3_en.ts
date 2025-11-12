@@ -72,10 +72,10 @@ export const profileSummary: SubSection = {
   items: [
     'List your qualifications - work experience / relevant education – degrees, certificates / relevant skills (hard and soft skills).',
     'Usually written as bullet points (Summary) or sentences (Profile).',
-    '  ◦ Bullet points: 5-7 items',
-    '  ◦ Sentences: 4-5 lines',
-    '  ◦ Hard skills: computer skills, typing, driving, etc.',
-    '  ◦ Soft skills: communication, people skills, team player, etc.'
+    'Bullet points: 5-7 items',
+    'Sentences: 4-5 lines',
+    'Hard skills: computer skills, typing, driving, etc.',
+    'Soft skills: communication, people skills, team player, etc.'
   ],
   borderColor: 'border-blue-500'
 };
@@ -116,7 +116,7 @@ export const coverLetterStructure: NumberedList = {
     'First, second, and third paragraphs.',
     'Signature.'
   ],
-  borderColor: 'border-blue-500',
+  borderColor: 'border-amber-500',
   textColor: 'text-blue-400'
 };
 
@@ -150,7 +150,7 @@ export const coverLetterDos: IconList = {
   ],
   icon: '✓',
   iconColor: 'text-emerald-400',
-  borderColor: 'border-emerald-500'
+  borderColor: 'border-rose-500'
 };
 
 export const coverLetterDonts: IconList = {
@@ -163,8 +163,8 @@ export const coverLetterDonts: IconList = {
     'Check for Canadian spelling – US and UK English differ.'
   ],
   icon: '✗',
-  iconColor: 'text-red-400',
-  borderColor: 'border-red-500'
+  iconColor: 'text-emerald-300',
+  borderColor: 'border-emerald-500'
 };
 
 export const resumeDonts: IconList = {
@@ -177,8 +177,8 @@ export const resumeDonts: IconList = {
     'Do not mention your age.'
   ],
   icon: '✗',
-  iconColor: 'text-red-400',
-  borderColor: 'border-red-500'
+  iconColor: 'text-red-300',
+  borderColor: 'border-cyan-500'
 };
 
 export const coverLetterConsiderations: IconList = {
@@ -199,7 +199,7 @@ export const resumeQuestions: QuestionList = {
     'Q. How many pages should a resume be?'
   ],
   borderColor: 'border-yellow-500',
-  textColor: 'text-yellow-300'
+  textColor: 'text-yellow-800'
 };
 
 export const resumeRequirements: SectionWithSubSections = {

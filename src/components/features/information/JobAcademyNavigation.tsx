@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { removeLeadingNumbers } from '../../../components/utils/Util';
 
 interface JobAcademyNavigationProps {
     currentJobId: number;
@@ -33,12 +34,12 @@ const JobAcademyNavigation: React.FC<JobAcademyNavigationProps> = ({ currentJobI
     ];
 
     return (
-        <section className="bg-gray-800 p-8 rounded-xl shadow-lg border-l-4 border-indigo-500 mt-12">
-            <h2 className="text-white text-2xl font-bold mb-6 text-center">
+        <div className ="mx-auto">
+            <h2 className="text-black text-2xl font-bold mb-6 text-center">
                 {t('information.jobAcademy')}
             </h2>
 
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {jobPages.map((job) => {
                     const isCurrentPage = job.id === currentJobId;
 
@@ -47,14 +48,12 @@ const JobAcademyNavigation: React.FC<JobAcademyNavigationProps> = ({ currentJobI
                         return (
                             <div
                                 key={job.id}
-                                className="bg-yellow-600 text-yellow-900 px-6 py-4 rounded-lg flex items-center justify-between font-bold transition-all duration-300 cursor-default border-l-4 border-yellow-400"
+                                className="bg-orange-400 text-white px-4 py-3 rounded-lg flex flex-col items-center justify-center font-bold transition-all duration-300 cursor-default border-l-4 border-blue-400 text-center"
                             >
-                                <div className="flex items-center">
-                                    <span className="text-lg font-bold mr-4">Lecture {job.id}</span>
-                                    <span className="text-base">
-                                        {t(`information.${job.titleKey}`) || `information.${job.id}`}
-                                    </span>
-                                </div>
+                                <span className="text-lg font-bold mb-1">Lecture {job.id}</span>
+                                <span className="text-sm">
+                                    {removeLeadingNumbers(t(`information.${job.titleKey}`) || `information.${job.id}`)}
+                                </span>
                             </div>
                         );
                     }
@@ -65,25 +64,23 @@ const JobAcademyNavigation: React.FC<JobAcademyNavigationProps> = ({ currentJobI
                             key={job.id}
                             to={job.path}
                             onClick={scrollToTop}
-                            className="bg-gray-700 hover:bg-blue-600 text-white px-6 py-4 rounded-lg flex items-center justify-between font-medium transition-all duration-300 hover:translate-x-2 hover:shadow-lg group border-l-4 border-gray-500 hover:border-blue-400"
+                            className="bg-gray-700 hover:bg-lime-400 text-white px-4 py-3 rounded-lg flex flex-col items-center justify-center font-medium transition-all duration-300 hover:shadow-lg group border-l-4 border-gray-500 hover:border-blue-400 text-center"
                         >
-                            <div className="flex items-center">
-                                <span className="text-lg font-bold mr-4 group-hover:text-blue-200">Lecture {job.id}</span>
-                                <span className="text-base group-hover:text-blue-100">
-                                    {t(`information.${job.titleKey}`)}
-                                </span>
-                            </div>
+                            <span className="text-lg font-bold mb-1 group-hover:text-gray-900">Lecture {job.id}</span>
+                            <span className="text-sm group-hover:text-gray-800">
+                                {removeLeadingNumbers(t(`information.${job.titleKey}`) || `information.${job.id}`)}
+                            </span>
                         </Link>
                     );
                 })}
             </div>
 
             <div className="mt-6 text-center">
-                <p className="text-gray-300 text-sm">
+                <p className="text-gray-900 text-sm">
                     {t('information.navigationDescription')}
                 </p>
             </div>
-        </section>
+        </div>
     );
 };
 

@@ -83,7 +83,7 @@ export const disadvantagesSection = {
   description: "While co-op housing has many advantages, it also comes with trade-offs that potential members need to understand:",
   cards: disadvantageCards,
   bgColor: 'bg-red-800/20',
-  titleColor: 'text-red-400'
+  titleColor: 'text-red-300'
 };
 
 // Gallery section content

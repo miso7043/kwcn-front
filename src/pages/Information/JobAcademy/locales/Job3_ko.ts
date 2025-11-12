@@ -73,10 +73,10 @@ export const profileSummary: SubSection = {
   items: [
     "자기가 가지고 있는 자격 요건들을 쓰기 - 일 경험 / 관련 교육 – 학력, 자격증 / 관련성 있는 기술 (하드 스킬과 소프트 스킬)",
     "보통은 포인트 폼 (Summary)이나 문장식 (Profile)으로 쓰여집니다.",
-    "  ◦ 포인트 폼은 5-7개",
-    "  ◦ 문장식은 4-5 줄",
-    "  ◦ 하드스킬: 컴퓨터 스킬, 타이핑 스킬, 운전…등등",
-    "  ◦ 소프트 스킬: 커뮤니케이션, 피플 스킬, 팀 플레이어…등등"
+    "포인트 폼은 5-7개",
+    "문장식은 4-5 줄",
+    "하드스킬: 컴퓨터 스킬, 타이핑 스킬, 운전…등등",
+    "소프트 스킬: 커뮤니케이션, 피플 스킬, 팀 플레이어…등등"
   ],
   borderColor: "border-blue-500"
 };
@@ -117,7 +117,7 @@ export const coverLetterStructure: NumberedList = {
     "첫 번째 문단, 두번째 문단, 그리고 세번째 문단",
     "싸인 하기"
   ],
-  borderColor: "border-blue-500",
+  borderColor: "border-amber-500",
   textColor: "text-blue-400"
 };
 
@@ -139,7 +139,7 @@ export const coverLetterRequirements: IconList = {
   ],
   icon: "•",
   iconColor: "text-emerald-400",
-  borderColor: "border-emerald-500"
+  borderColor: "border-rose-500"
 };
 
 export const coverLetterDos: IconList = {
@@ -164,8 +164,8 @@ export const coverLetterDonts: IconList = {
     "캐네디언 스펠링 체크 – 미국 영어, 영국 영어 단어가 조금씩 다름"
   ],
   icon: "✗",
-  iconColor: "text-red-400",
-  borderColor: "border-red-500"
+  iconColor: "text-red-300",
+  borderColor: "border-cyan-500"
 };
 
 export const resumeDonts: IconList = {
@@ -178,7 +178,7 @@ export const resumeDonts: IconList = {
     "자기 나이 말하지 않기"
   ],
   icon: "✗",
-  iconColor: "text-red-400",
+  iconColor: "text-red-300",
   borderColor: "border-red-500"
 };
 
@@ -200,7 +200,7 @@ export const resumeQuestions: QuestionList = {
     "Q. Resume는 몇 장 정도를 써야 하나요?"
   ],
   borderColor: "border-yellow-500",
-  textColor: "text-yellow-300"
+  textColor: "text-yellow-800"
 };
 
 export const resumeRequirements: SectionWithSubSections = {
